@@ -21,7 +21,7 @@ $-
 
 # Command Line History (newest to oldest):
 :q
-|2,0,1613897692,,"q"
+|2,0,1613921412,,"q"
 :q!
 |2,0,1613690535,,"q!"
 :wq
@@ -427,34 +427,82 @@ $-
 |3,1,36,0,1,0,1613690411,"z"
 
 # File marks:
-'0  1  0  ~/ownCloud/dotfiles/zathurarc
-|4,48,1,0,1613897692,"~/ownCloud/dotfiles/zathurarc"
-'1  1  0  ~/ownCloud/dotfiles/xsessionrc
-|4,49,1,0,1613897683,"~/ownCloud/dotfiles/xsessionrc"
-'2  1  0  ~/ownCloud/dotfiles/xinitrc
-|4,50,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
-'3  1  0  ~/ownCloud/dotfiles/tmux.conf
-|4,51,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
-'4  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,52,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
-'5  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,53,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
-'6  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,54,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
-'7  1  0  ~/ownCloud/dotfiles/dwm/config.h
-|4,55,1,0,1613690491,"~/ownCloud/dotfiles/dwm/config.h"
-'8  1  0  ~/ownCloud/dotfiles/dwm/config.def.h
-|4,56,1,0,1613690478,"~/ownCloud/dotfiles/dwm/config.def.h"
-'9  16  51  ~/ownCloud/dotfiles/dwm/config.def.h
-|4,57,16,51,1613690424,"~/ownCloud/dotfiles/dwm/config.def.h"
+'0  1  0  ~/ownCloud/dotfiles/Rprofile
+|4,48,1,0,1613921412,"~/ownCloud/dotfiles/Rprofile"
+'1  1  0  ~/ownCloud/dotfiles2/xsessionrc
+|4,49,1,0,1613921349,"~/ownCloud/dotfiles2/xsessionrc"
+'2  1  0  ~/ownCloud/dotfiles/zathurarc
+|4,50,1,0,1613897692,"~/ownCloud/dotfiles/zathurarc"
+'3  1  0  ~/ownCloud/dotfiles/xsessionrc
+|4,51,1,0,1613897683,"~/ownCloud/dotfiles/xsessionrc"
+'4  1  0  ~/ownCloud/dotfiles/xinitrc
+|4,52,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
+'5  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,53,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+'6  1  0  ~/ownCloud/dotfiles/scripts/status/weather
+|4,54,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
+'7  1  0  ~/ownCloud/dotfiles/scripts/status/weather
+|4,55,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+'8  6  36  ~/ownCloud/dotfiles/st/config.def.h
+|4,56,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
+'9  1  0  ~/ownCloud/dotfiles/dwm/config.h
+|4,57,1,0,1613690491,"~/ownCloud/dotfiles/dwm/config.h"
 
 # Jumplist (newest first):
+-'  1  0  ~/ownCloud/dotfiles/Rprofile
+|4,39,1,0,1613921412,"~/ownCloud/dotfiles/Rprofile"
+-'  1  0  ~/ownCloud/dotfiles2/xsessionrc
+|4,39,1,0,1613921349,"~/ownCloud/dotfiles2/xsessionrc"
+-'  1  0  ~/ownCloud/dotfiles2/xsessionrc
+|4,39,1,0,1613921349,"~/ownCloud/dotfiles2/xsessionrc"
+-'  1  0  ~/ownCloud/dotfiles/zathurarc
+|4,39,1,0,1613897692,"~/ownCloud/dotfiles/zathurarc"
+-'  1  0  ~/ownCloud/dotfiles/zathurarc
+|4,39,1,0,1613897692,"~/ownCloud/dotfiles/zathurarc"
+-'  1  0  ~/ownCloud/dotfiles/zathurarc
+|4,39,1,0,1613897692,"~/ownCloud/dotfiles/zathurarc"
 -'  1  0  ~/ownCloud/dotfiles/zathurarc
 |4,39,1,0,1613897692,"~/ownCloud/dotfiles/zathurarc"
 -'  1  0  ~/ownCloud/dotfiles/xsessionrc
 |4,39,1,0,1613897683,"~/ownCloud/dotfiles/xsessionrc"
 -'  1  0  ~/ownCloud/dotfiles/xsessionrc
 |4,39,1,0,1613897683,"~/ownCloud/dotfiles/xsessionrc"
+-'  1  0  ~/ownCloud/dotfiles/xsessionrc
+|4,39,1,0,1613897683,"~/ownCloud/dotfiles/xsessionrc"
+-'  1  0  ~/ownCloud/dotfiles/xsessionrc
+|4,39,1,0,1613897683,"~/ownCloud/dotfiles/xsessionrc"
+-'  1  0  ~/ownCloud/dotfiles/xsessionrc
+|4,39,1,0,1613897683,"~/ownCloud/dotfiles/xsessionrc"
+-'  1  0  ~/ownCloud/dotfiles/xsessionrc
+|4,39,1,0,1613897683,"~/ownCloud/dotfiles/xsessionrc"
+-'  1  0  ~/ownCloud/dotfiles/xsessionrc
+|4,39,1,0,1613897683,"~/ownCloud/dotfiles/xsessionrc"
+-'  1  0  ~/ownCloud/dotfiles/xsessionrc
+|4,39,1,0,1613897683,"~/ownCloud/dotfiles/xsessionrc"
+-'  1  0  ~/ownCloud/dotfiles/xinitrc
+|4,39,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
+-'  1  0  ~/ownCloud/dotfiles/xinitrc
+|4,39,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
+-'  1  0  ~/ownCloud/dotfiles/xinitrc
+|4,39,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
+-'  1  0  ~/ownCloud/dotfiles/xinitrc
+|4,39,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
+-'  1  0  ~/ownCloud/dotfiles/xinitrc
+|4,39,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
+-'  1  0  ~/ownCloud/dotfiles/xinitrc
+|4,39,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
+-'  1  0  ~/ownCloud/dotfiles/xinitrc
+|4,39,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
+-'  1  0  ~/ownCloud/dotfiles/xinitrc
+|4,39,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
+-'  1  0  ~/ownCloud/dotfiles/xinitrc
+|4,39,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
+-'  1  0  ~/ownCloud/dotfiles/xinitrc
+|4,39,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
+-'  1  0  ~/ownCloud/dotfiles/xinitrc
+|4,39,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
+-'  1  0  ~/ownCloud/dotfiles/xinitrc
+|4,39,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
 -'  1  0  ~/ownCloud/dotfiles/xinitrc
 |4,39,1,0,1613897675,"~/ownCloud/dotfiles/xinitrc"
 -'  1  0  ~/ownCloud/dotfiles/xinitrc
@@ -479,6 +527,54 @@ $-
 |4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
 -'  1  0  ~/ownCloud/dotfiles/tmux.conf
 |4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
+-'  1  0  ~/ownCloud/dotfiles/tmux.conf
+|4,39,1,0,1613897660,"~/ownCloud/dotfiles/tmux.conf"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
 |4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
@@ -512,145 +608,57 @@ $-
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
 |4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 -'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
-|4,39,1,0,1613846922,"~/ownCloud/dotfiles/scripts/status/weather"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
--'  6  36  ~/ownCloud/dotfiles/st/config.def.h
-|4,39,6,36,1613690535,"~/ownCloud/dotfiles/st/config.def.h"
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
+-'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
+-'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
+-'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
+-'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
+-'  1  0  ~/ownCloud/dotfiles/scripts/status/weather
+|4,39,1,0,1613847134,"~/ownCloud/dotfiles/scripts/status/weather"
 
 # History of marks within files (newest to oldest):
+
+> ~/ownCloud/dotfiles/Rprofile
+	*	1613921408	0
+	"	1	0
+
+> ~/ownCloud/dotfiles2/xsessionrc
+	*	1613921344	0
+	"	1	0
 
 > ~/ownCloud/dotfiles/zathurarc
 	*	1613897688	0
@@ -2545,26 +2553,3 @@ $-
 	+	16	11
 	+	12	25
 	+	14	22
-
-> ~/ownCloud/dotfiles/scripts/status/microphone
-	*	1612392798	0
-	"	11	0
-	.	11	14
-	+	11	14
-
-> ~/ownCloud/dotfiles/scripts/kbd_change
-	*	1612390556	0
-	"	1	0
-	^	4	31
-	.	5	0
-	+	3	0
-	+	8	0
-	+	2	0
-	+	5	0
-	+	7	0
-	+	6	4
-	+	4	3
-	+	6	3
-	+	4	30
-	+	8	0
-	+	5	0

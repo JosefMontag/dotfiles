@@ -1,0 +1,7 @@
+set synctex true
+set synctex-editor-command "vim --remote-silent +%{line} %{input}"
+
+set window-height 3000
+set window-width 300
+
+
