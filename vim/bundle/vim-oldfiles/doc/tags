@@ -1,0 +1,6 @@
+:Oldfiles	oldfiles.txt	/*:Oldfiles*
+Oldfiles	oldfiles.txt	/*Oldfiles*
+g:oldfiles_blacklist	oldfiles.txt	/*g:oldfiles_blacklist*
+oldfiles-mappings	oldfiles.txt	/*oldfiles-mappings*
+oldfiles-options	oldfiles.txt	/*oldfiles-options*
+oldfiles.txt	oldfiles.txt	/*oldfiles.txt*
