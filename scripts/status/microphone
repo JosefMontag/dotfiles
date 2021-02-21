@@ -12,5 +12,5 @@ if [ "$micstatus" = "on" ]; then
 elif [ "$micstatus" = "off" ]; then
   iconmic=""
 fi
-echo "$iconmic"
 
+printf "%s" "$iconmic"

@@ -57,7 +57,7 @@ augroup END
 
 " Setup undo and file history
 set undofile                             " Tell it to use an undo file
-set undodir=~/Dropbox/dotfiles/vim/undo/ " Set directory for undo history
+" set undodir=~/dotfiles/vim/undo/ " Set directory for undo history
 set viminfo+=n~/.vim/viminfo
 
 " Autosave 

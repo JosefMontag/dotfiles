@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Inconsolata-g:size=13:antialias=true:autohint=true";
+static char *font = "Inconsolata\\-dz:size=13:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
   "3270Medium Nerd Font:size=15:antialias=true:autohint=true",

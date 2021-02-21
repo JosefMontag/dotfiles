@@ -1,6 +1,7 @@
+system('xrdb -merge ~/.Xresources')
 system('wmctrl -r "Terminal" -e 0,727,0,950,-1; wmctrl -r "Terminal" -b toggle,maximized_vert')
 
-.libPaths(c('~/ownCloud/dotfiles/R_libs', .libPaths()))
+.libPaths(c('~/ownCloud/syncfiles/R_libs', .libPaths()))
 
 .adjustwidth <- function(...) {
 	options(width=Sys.getenv("COLUMNS"))
