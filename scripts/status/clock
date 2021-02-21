@@ -1,0 +1,10 @@
+#!/bin/sh
+
+date="$(date '+%a   %b %-d   %H:%M')"
+
+printf "%s" "$date"
+
+case $BUTTON in
+    1) dunstify --replace=1 "$date" "Right click to open calcurse";;
+	3) st -f 'mono:pixelsize=20:antialias=true:autohint=true' -e calcurse & disown;;
+esac

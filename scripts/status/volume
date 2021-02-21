@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# This script uses pactl to get the volume level and display it in
+# the form of a notification and display an appropriate icon in the 
+# status bar.
+
+sinkinfo="$(pactl list sinks | grep 'Mute\|Volume:')"
+
+echo "$sinkinfo" | grep "Mute: yes" > /dev/null && printf " Off" && exit
+
+vol=$(echo "$sinkinfo" | grep "front-left" | awk '{ print $5 }' | tr -d "%" |
+  tail -1) 
+
+# if [ "$vol" -gt "100" ]; then
+#     # Don't let the volume level exceed 100%.
+#     # (0 is the index of the sink. Use pactl list sinks to get sink names.)
+#     pactl set-sink-volume 0 100%
+#     vol=100;
+# 	icon=""
+if [ "$vol" = "100" ]; then
+	icon=" $vol%"
+elif [ "$vol" -gt "70" ]; then
+	icon=" $vol%"
+elif [ "$vol" -gt "30" ]; then
+	icon=" $vol%"
+else
+	icon=" $vol%"
+fi
+
+echo "$icon"
+
+# dunstify --replace=1 "Volume $vol%"
+
+case $BUTTON in
+    1) dunstify --replace=1 "Volume $vol%";;
+esac

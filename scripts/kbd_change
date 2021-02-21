@@ -1,0 +1,7 @@
+#!/bin/sh
+if setxkbmap -print | grep "us"
+then
+   setxkbmap cz -variant qwerty
+else
+   setxkbmap us
+fi

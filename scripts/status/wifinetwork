@@ -1,0 +1,20 @@
+#!/bin/sh
+
+disabled=$(nmcli general | tail -1 | awk '{print $4}')
+state=$(nmcli general | tail -1 | awk '{print $1}')
+
+if [ $disabled = disabled ]
+then
+  wifiicon=
+elif [ $state = connected ]
+then
+  wifiicon= # $(awk '/^\s*w/ { print "", int($3 * 100 / 70) "%" }' /proc/net/wireless)
+elif [ $state = connecting ]
+then
+  wifiicon="Connecting"
+else
+  wifiicon="No signal"
+fi
+
+echo "$wifiicon"  #"$(sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"
+

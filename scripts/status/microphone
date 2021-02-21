@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# This script uses pactl to get the volume level and display it in
+# the form of a notification and display an appropriate icon in the 
+# status bar.
+
+micstatus="$(amixer get Capture | grep "Front Left: Capture" | awk 'NF>1{print $NF}' |
+  tr -d "[]")"
+
+if [ "$micstatus" = "on" ]; then
+  iconmic=""
+elif [ "$micstatus" = "off" ]; then
+  iconmic=""
+fi
+echo "$iconmic"
+
