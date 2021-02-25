@@ -1,7 +1,9 @@
-system('xrdb -merge ~/.Xresources')
-system('wmctrl -r "Terminal" -e 0,727,0,950,-1; wmctrl -r "Terminal" -b toggle,maximized_vert')
+# system('xrdb -merge ~/.Xresources')
+# system('wmctrl -r "Terminal" -e 0,727,0,950,-1; wmctrl -r "Terminal" -b toggle,maximized_vert')
 
-.libPaths(c('~/ownCloud/syncfiles/R_libs', .libPaths()))
+options(repos=c(CRAN="https://mirrors.nic.cz/R", 'http://cran.rstudio.org'))
+.libPaths(c('~/ownCloud/syncfiles/R_libs/', .libPaths()))
+
 
 .adjustwidth <- function(...) {
 	options(width=Sys.getenv("COLUMNS"))
@@ -11,12 +13,13 @@ system('wmctrl -r "Terminal" -e 0,727,0,950,-1; wmctrl -r "Terminal" -b toggle,m
 }
 invisible(addTaskCallback(.adjustwidth))
 
-if('colorout' %in% rownames(utils::installed.packages()) == FALSE) {
-  if('remotes' %in% rownames(utils::installed.packages()) == FALSE) {
-  install.packages('remotes')
-  }
-  remotes::install_github('jalvesaq/colorout')
-}
+# capabilities("tcltk")
+# if('colorout' %in% rownames(utils::installed.packages()) == FALSE) {
+#   if('devtools' %in% rownames(utils::installed.packages()) == FALSE) {
+#     utils::install.packages('devtools')
+#   }
+#   devtools::install_github('jalvesaq/colorout')
+# }
 library(colorout)
 
 # library(setwidth)
@@ -31,7 +34,7 @@ library(colorout)
 
 options(showWarnCalls = T,  # These 2 make errors easier to see.
         showErrorCalls = T, 
-        repos = 'http://cran.rstudio.org',  # Set CRAN 
+        # repos = 'http://cran.rstudio.org',  # Set CRAN 
         pdfviewer = 'okular',  # on Linux, use okular as the pdf viewer
         prompt = 'R> ',  # Set prompt
         digits = 5, 

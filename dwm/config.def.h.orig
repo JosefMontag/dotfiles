@@ -4,7 +4,7 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 4;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 4;   /* systray spacing */
@@ -12,13 +12,13 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = {"IcoFont:size=13", "NotoColorEmoji:size=15", "FontAwesome:size=13", "Inconsolata-g:size=13" };
-static const char dmenufont[]       = "Inconsolata-g:size=13";
+static const char *fonts[]          = {"Inconsolata\\-dz:size=13", "IcoFont:size=13", "NotoColorEmoji:size=15", "FontAwesome:size=13"};
+static const char dmenufont[]       = "Inconsolata\\-dz:size=13";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#10852f";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -27,7 +27,7 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
   "dwmblocks", NULL,
-  "google-chrome", NULL,
+  "chromium", NULL,
   "redshift", "-l", "49:15", NULL,
   "st", "vifm", NULL,
   "vim", "-g", NULL,
@@ -45,19 +45,20 @@ static const Rule rules[] = {
 	 *	M_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class            instance    title       tags mask     isfloating   monitor */
-	{ "Google-chrome",  NULL,       NULL,       0 << 0,       0,           -1 },
-	{ NULL,             NULL,     "vifm",       1 << 1,       0,           -1 },
-	{ "Gvim",           NULL,       NULL,       1 << 2,       0,           -1 },
-	{ "ownCloud",       NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "Insync",         NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "dropbox",        NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class            instance    title       tags mask  iscentered   isfloating   monitor */
+	{ "Google-chrome",  NULL,       NULL,       0 << 0,    0,           0,           -1 },
+	{ "st",             NULL,     "vifm",       1 << 1,    0,           0,           -1 },
+	{ "Gvim",           NULL,       NULL,       1 << 2,    0,           0,           -1 },
+	{ "ownCloud",       NULL,       NULL,       1 << 8,    0,           0,           -1 },
+	{ "Insync",         NULL,       NULL,       1 << 8,    0,           0,           -1 },
+	{ "dropbox",        NULL,       NULL,       1 << 8,    0,           0,           -1 },
+	{ "st",             NULL,       NULL,       0,      1,           0,           -1 },
 };
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -129,20 +130,16 @@ static Key keys[] = {
   { 0, XF86XK_AudioRaiseVolume,              spawn,          SHCMD("amixer set Master 5%+; pkill -RTMIN+1 dwmblocks") },
   { 0, XF86XK_AudioLowerVolume,              spawn,          SHCMD("amixer set Master 5%-; pkill -RTMIN+1 dwmblocks") }, 
   { 0, XF86XK_AudioMicMute,                  spawn,          SHCMD("amixer set Capture toggle; pkill -RTMIN+2 dwmblocks") },
-  { 0, XF86XK_MonBrightnessUp,               spawn,          SHCMD("xbacklight -inc 10") },
-  { 0, XF86XK_MonBrightnessDown,             spawn,          SHCMD("xbacklight -dec 10") },
+  { 0, XF86XK_MonBrightnessUp,               spawn,          SHCMD("backlight_control +10") },
+  { 0, XF86XK_MonBrightnessDown,             spawn,          SHCMD("backlight_control -10") },
   // Keyboard switcher signal
-  {Mod4Mask,                      XK_space,  spawn,          SHCMD("~/scripts/kbd_change;pkill -RTMIN+3 dwmblocks") },
+  {Mod4Mask,                      XK_space,  spawn,          SHCMD("~/dotfiles/scripts/kbd_change; pkill -RTMIN+3 dwmblocks") },
   // Wifi signal
   { 0, XF86XK_WLAN,                          spawn,          SHCMD("sleep 0.3s;pkill -RTMIN+4 dwmblocks") },
   // Screenshot
-  {0, XK_Print,                     spawn,          SHCMD("sleep 0.3s;scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'") },
-// {0,  XK_Print,   spawn,      SHCMD("sleep 1s;scrot --select") },
-  // { MODKEY|ControlMask|ShiftMask, XK_h,           togglehorizontalmax, {NULL} },
-  // { MODKEY|ControlMask|ShiftMask, XK_l,           togglehorizontalmax, {NULL} },
-  // { MODKEY|ControlMask|ShiftMask, XK_j,           toggleverticalmax,   {NULL} },
-  // { MODKEY|ControlMask|ShiftMask, XK_k,           toggleverticalmax,   {NULL} },
-  // { MODKEY|ControlMask,           XK_m,           togglemaximize,      {0} },
+  {0, XK_Print,                              spawn,          SHCMD("sleep 0.3s;scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'") },
+  // Rofi
+  {ControlMask,                   XK_space, spawn,          SHCMD("rofi -show drun -kb-cancel") },
 };
 
 /* button definitions */
@@ -154,8 +151,8 @@ static Button buttons[] = {
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
-	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+	{ ClkClientWin,         MODKEY,         Button3,        togglefloating, {0} },
+	{ ClkClientWin,         MODKEY,         Button2,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },

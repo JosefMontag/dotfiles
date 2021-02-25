@@ -2,5 +2,5 @@
 
 # Taken from dwm-bar scripts
 
-dat=$(curl -s "wttr.in?format=1")
+dat=$(curl -s "wttr.in?format=1" | sed -e "s/ //")
 printf "%s" "$dat"

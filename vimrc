@@ -12,6 +12,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'jalvesaq/Nvim-R'
 Plugin 'gpanders/vim-oldfiles'
 Plugin 'reedes/vim-pencil'
+Plugin 'jceb/vim-orgmode'
 call vundle#end() 
 
 filetype on               " Vundle required
@@ -153,7 +154,7 @@ nmap <silent> ,b :bro ol<cr>
 set guioptions=aAcg               " Hide menu buttons, etc.
 set textwidth=80
 set columns=80
-set lines=48
+set lines=53
 " call system('wmctrl -ir '.v:windowid . '-b maximized_vert' )
 
 set guifont=Inconsolata-dz\ 14
@@ -167,7 +168,6 @@ set cmdheight=1
 "set nojoinspaces
 set vb                            " set visual bell
 set mousehide                     " Hide the mouse pointer while typing
-
 
 
 " Set the status line the way I like it
