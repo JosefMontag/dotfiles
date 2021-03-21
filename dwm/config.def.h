@@ -31,7 +31,7 @@ static const char *const autostart[] = {
   "redshift", "-l", "49:15", NULL,
   "st", "vifm", NULL,
   "vim", "-g", NULL,
-  "owncloud", "-s", NULL,
+  "owncloud", NULL,
   "insync", "start",  NULL,
   "xautolock", "-locker", "slock", NULL,
 	NULL /* terminate */
@@ -82,14 +82,14 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 // #include "selfrestart.c"
 
 static Key keys[] = {
 	/* modifier                     key        function        argumen style=Boldt */
-	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ControlMask,           XK_space,  spawn,          {.v = dmenucmd } },
+	{ ControlMask|ShiftMask,        XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -102,7 +102,7 @@ static Key keys[] = {
  	{ MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,                       XK_q,      killclient,     {0} },
+	{ ControlMask,                  XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -135,7 +135,7 @@ static Key keys[] = {
   { 0, XF86XK_MonBrightnessUp,               spawn,          SHCMD("backlight_control +10") },
   { 0, XF86XK_MonBrightnessDown,             spawn,          SHCMD("backlight_control -10") },
   // Keyboard switcher signal
-  {Mod4Mask,                      XK_space,  spawn,          SHCMD("~/dotfiles/scripts/kbd_change; pkill -RTMIN+3 dwmblocks") },
+  {ControlMask|ShiftMask,                      XK_space,  spawn,          SHCMD("~/dotfiles/scripts/kbd_change; pkill -RTMIN+3 dwmblocks") },
   // Wifi signal
   { 0, XF86XK_WLAN,                          spawn,          SHCMD("sleep 0.3s;pkill -RTMIN+4 dwmblocks") },
   // Screenshot

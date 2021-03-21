@@ -8,6 +8,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'     " Vundle required let Vundle manage Vundle
 Plugin 'vim-scripts/xoria256.vim'
 Plugin 'lervag/vimtex'
+" Plugin 'Shougo/deoplete.nvim'
+" Plugin 'roxma/nvim-yarp'
+" Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'jalvesaq/Nvim-R'
 Plugin 'gpanders/vim-oldfiles'
@@ -76,6 +79,12 @@ set autowrite
 let g:vimtex_view_method = 'zathura'
 let g:tex_flavor = 'latex'
 " let g:tex_conceal = ""
+" This is new style
+" This is new style
+" call deoplete#custom#var('omni', 'input_patterns', {
+"       \ 'tex': g:vimtex#re#deoplete
+"       \})
+" let g:deoplete#enable_at_startup = 1
 
 " Remappings: {{{1
 
@@ -154,7 +163,7 @@ nmap <silent> ,b :bro ol<cr>
 set guioptions=aAcg               " Hide menu buttons, etc.
 set textwidth=80
 set columns=80
-set lines=53
+set lines=49
 " call system('wmctrl -ir '.v:windowid . '-b maximized_vert' )
 
 set guifont=Inconsolata-dz\ 14
@@ -196,5 +205,5 @@ vmap <C-CR> \se<esc>
 nmap <C-CR> V\se<esc>
 
 " For Markdown {{{1
-map ,p :execute '!pandoc' '"' . expand('%:p') . '" -o "'. expand('%<:p') . '.pdf' . '" -t beamer' <cr> 
-" map ,p :execute '!pandoc' '"' . expand('%:p') . '" -o "'. expand('%<:p') . '.pdf' . '" --filter pandoc-citeproc' <cr>
+" map ,p :execute '!pandoc' '"' . expand('%:p') . '" -o "'. expand('%<:p') . '.pdf' . '" -t beamer' <cr> 
+map ,p :execute '!pandoc' '"' . expand('%:p') . '" -o "'. expand('%<:p') . '.pdf' . '" --citeproc' <cr>

@@ -6,6 +6,10 @@ nnoremap ,sv :restart<cr>
 " Show bookmarks
 nnoremap ,b :bmarks<cr>
 
+" Enable drag and drop
+command! dragon dragon-drag-and-drop -a -x %f
+nmap D :dragon<CR>
+
 " vim: filetype=vifm :
 " Sample configuration file for vifm (last updated: 9 September, 2020)
 " You can edit this file by hand.
@@ -407,7 +411,7 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 
 " Customize view columns a bit (enable ellipsis for truncated file names)
 "
-set viewcolumns=-{name}..,16{mtime}.
+set viewcolumns=-{name}..,6{size},16{mtime}
 set sort=-mtime
 
 " Filter-out build and temporary files

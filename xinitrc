@@ -6,4 +6,6 @@ xmodmap -e "keycode 135 = Pointer_Button2"
 setxkbmap -option caps:escape,altwin:ctrl_alt_win
 xrdb -merge ~/.Xresources
 
+feh --bg-scale ~/dotfiles/wallpaper/simple.png
+
 exec dwm
