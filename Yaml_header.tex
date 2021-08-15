@@ -1,0 +1,16 @@
+\iftoggle{pauseoff}
+{
+  \newcommand\pau[1]{#1}
+}
+{
+  \newcommand\pau{\pause}
+  \mode<presentation> { \setbeamercovered{transparent} }
+  \setbeamertemplate{navigation symbols}{}
+  \makeatletter
+    \def\beamerorig@set@color{%
+      \pdfliteral{\current@color}%
+        \aftergroup\reset@color
+    }
+  \def\beamerorig@reset@color{\pdfliteral{\current@color}}
+  \makeatother
+}

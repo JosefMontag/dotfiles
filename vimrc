@@ -196,7 +196,6 @@ nnoremap <S-Tab> :b#<cr>
 let R_external_term = 'xterm'
 let R_in_buffer=0
 let R_applescript = 0
-let R_in_buffer = 0
 let R_assign_map = '<C-,>'
 imap <C-.> <space>%>%<space>
 
@@ -205,5 +204,5 @@ vmap <C-CR> \se<esc>
 nmap <C-CR> V\se<esc>
 
 " For Markdown {{{1
-" map ,p :execute '!pandoc' '"' . expand('%:p') . '" -o "'. expand('%<:p') . '.pdf' . '" -t beamer' <cr> 
-map ,p :execute '!pandoc' '"' . expand('%:p') . '" -o "'. expand('%<:p') . '.pdf' . '" --citeproc' <cr>
+map ,p :execute '!pandoc' '"' . expand('%:p') . '" -o "'. expand('%<:p') . '.pdf' . '" -t beamer' <cr> 
+" map ,p :execute '!pandoc' '"' . expand('%:p') . '" -o "'. expand('%<:p') . '.pdf' . '" --citeproc' <cr>

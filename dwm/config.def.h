@@ -29,7 +29,7 @@ static const char *const autostart[] = {
   "dwmblocks", NULL,
   "chromium", NULL,
   "redshift", "-l", "49:15", NULL,
-  "st", "vifm", NULL,
+  "nautilus", NULL,
   "vim", "-g", NULL,
   "owncloud", NULL,
   "insync", "start",  NULL,
@@ -47,7 +47,7 @@ static const Rule rules[] = {
 	 */
 	/* class            instance    title       tags mask  iscentered   isfloating   monitor */
 	{ "Google-chrome",  NULL,       NULL,       0 << 0,    0,           0,           -1 },
-	{ "st",             NULL,     "vifm",       1 << 1,    0,           0,           -1 },
+	{ "Nautilus",         NULL,       NULL,       1 << 1,    0,           0,           -1 },
 	{ "Gvim",           NULL,       NULL,       1 << 2,    0,           0,           -1 },
 	{ "ownCloud",       NULL,       NULL,       1 << 8,    0,           0,           -1 },
 	{ "Insync",         NULL,       NULL,       1 << 8,    0,           0,           -1 },
@@ -128,10 +128,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} }, 
   // Volume, mic, and brightness keys
-  { 0, XF86XK_AudioMute,                     spawn,          SHCMD("amixer -q set Master toggle; pkill -RTMIN+1 dwmblocks") },
+  { 0, XF86XK_AudioMute,                     spawn,          SHCMD("~/dotfiles/scripts/status/volume_toggle; pkill -RTMIN+1 dwmblocks") },
   { 0, XF86XK_AudioRaiseVolume,              spawn,          SHCMD("amixer set Master 5%+; pkill -RTMIN+1 dwmblocks") },
   { 0, XF86XK_AudioLowerVolume,              spawn,          SHCMD("amixer set Master 5%-; pkill -RTMIN+1 dwmblocks") }, 
-  { 0, XF86XK_AudioMicMute,                  spawn,          SHCMD("amixer set Capture toggle; pkill -RTMIN+2 dwmblocks") },
+  { 0, XF86XK_AudioMicMute,                  spawn,          SHCMD("amixer set Capture toggle; amixer set Dmic0 toggle; pkill -RTMIN+2 dwmblocks") },
   { 0, XF86XK_MonBrightnessUp,               spawn,          SHCMD("backlight_control +10") },
   { 0, XF86XK_MonBrightnessDown,             spawn,          SHCMD("backlight_control -10") },
   // Keyboard switcher signal
