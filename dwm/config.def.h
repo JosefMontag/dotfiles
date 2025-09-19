@@ -4,7 +4,7 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 4;   /* systray spacing */
@@ -12,8 +12,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = {"Inconsolata\\-dz:size=13", "IcoFont:size=13", "NotoColorEmoji:size=15", "FontAwesome:size=13"};
-static const char dmenufont[]       = "Inconsolata\\-dz:size=13";
+static const char *fonts[]          = {"Inconsolata\\-dz:size=10", "FontAwesome:size=10", "IcoFont:size=10", "WeatherIcons-Regular:size=14", "NotoColorEmoji:size=10"};
+static const char dmenufont[]       = "Inconsolata\\-dz:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -27,13 +27,11 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
   "dwmblocks", NULL,
-  "chromium", NULL,
+  "firefox", NULL,
   "redshift", "-l", "49:15", NULL,
   "nautilus", NULL,
-  "vim", "-g", NULL,
-  "owncloud", NULL,
   "insync", "start",  NULL,
-  "xautolock", "-locker", "slock", NULL,
+  "xautolock", "-time", "10", "-locker", "slock", NULL,
 	NULL /* terminate */
 };
 
@@ -45,14 +43,11 @@ static const Rule rules[] = {
 	 *	M_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class            instance    title       tags mask  iscentered   isfloating   monitor */
-	{ "Google-chrome",  NULL,       NULL,       0 << 0,    0,           0,           -1 },
-	{ "Nautilus",         NULL,       NULL,       1 << 1,    0,           0,           -1 },
-	{ "Gvim",           NULL,       NULL,       1 << 2,    0,           0,           -1 },
-	{ "ownCloud",       NULL,       NULL,       1 << 8,    0,           0,           -1 },
-	{ "Insync",         NULL,       NULL,       1 << 8,    0,           0,           -1 },
-	{ "dropbox",        NULL,       NULL,       1 << 8,    0,           0,           -1 },
-	{ "st",             NULL,       NULL,       0,      1,           0,           -1 },
+	/* class      instance    title       tags mask  iscentered   isfloating   monitor */
+	{ "firefox",  NULL,       NULL,       0,    0,           0,           -1 },
+	{ "Nautilus", NULL,       NULL,       1 << 1,    0,           0,           -1 },
+	{ "Chat-gpt", NULL,       NULL,       1 << 2,    0,           0,           -1 },
+	{ "Insync",   NULL,       NULL,       1 << 8,    0,           0,           -1 },
 };
 
 /* layout(s) */
@@ -69,7 +64,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -82,7 +77,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "wezterm", NULL };
 
 // #include "selfrestart.c"
 
@@ -128,12 +123,12 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} }, 
   // Volume, mic, and brightness keys
-  { 0, XF86XK_AudioMute,                     spawn,          SHCMD("~/dotfiles/scripts/status/volume_toggle; pkill -RTMIN+1 dwmblocks") },
-  { 0, XF86XK_AudioRaiseVolume,              spawn,          SHCMD("amixer set Master 5%+; pkill -RTMIN+1 dwmblocks") },
-  { 0, XF86XK_AudioLowerVolume,              spawn,          SHCMD("amixer set Master 5%-; pkill -RTMIN+1 dwmblocks") }, 
-  { 0, XF86XK_AudioMicMute,                  spawn,          SHCMD("amixer set Capture toggle; amixer set Dmic0 toggle; pkill -RTMIN+2 dwmblocks") },
-  { 0, XF86XK_MonBrightnessUp,               spawn,          SHCMD("backlight_control +10") },
-  { 0, XF86XK_MonBrightnessDown,             spawn,          SHCMD("backlight_control -10") },
+  { 0, XF86XK_AudioMute,              spawn,          SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; pkill -RTMIN+1 dwmblocks") },
+  { 0, XF86XK_AudioRaiseVolume,       spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; pkill -RTMIN+1 dwmblocks") },
+  { 0, XF86XK_AudioLowerVolume,       spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; pkill -RTMIN+1 dwmblocks") },
+  { 0, XF86XK_AudioMicMute,           spawn,          SHCMD("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; pkill -RTMIN+2 dwmblocks") },
+  { 0, XF86XK_MonBrightnessUp,        spawn,          SHCMD("backlight_control +10") },
+  { 0, XF86XK_MonBrightnessDown,      spawn,          SHCMD("backlight_control -10") },
   // Keyboard switcher signal
   {ControlMask|ShiftMask,                      XK_space,  spawn,          SHCMD("~/dotfiles/scripts/kbd_change; pkill -RTMIN+3 dwmblocks") },
   // Wifi signal

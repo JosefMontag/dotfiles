@@ -3,22 +3,36 @@
 capacity=$(cat /sys/class/power_supply/BAT0/capacity) || exit
 status=$(cat /sys/class/power_supply/BAT0/status)
 
-if [ $status = Discharging ]; then
+if [ "$status" = "Discharging" ]; then
   if [ "$capacity" -gt 85 ]; then
     icon=""
-  elif [ "$capacity" -le 85 -a "$capacity" -gt 60 ]; then
+  elif [ "$capacity" -le 85 ] && [ "$capacity" -gt 60 ]; then
     icon=""
-  elif [ "$capacity" -le 60 -a "$capacity" -gt 30 ]; then
+  elif [ "$capacity" -le 60 ] && [ "$capacity" -gt 30 ]; then
     icon=""
-  elif [ "$capacity" -le 30 -a "$capacity" -gt 10 ]; then
+  elif [ "$capacity" -le 30 ] && [ "$capacity" -gt 10 ]; then
     icon=""
   elif [ "$capacity" -le 10 ]; then
     icon=""
   elif [ "$capacity" -le 5 ]; then
     icon="!"
   fi
+
+  energy_now=$(cat /sys/class/power_supply/BAT0/energy_now 2>/dev/null)
+  power_now=$(cat /sys/class/power_supply/BAT0/power_now 2>/dev/null)
+
+  if [ -n "$energy_now" ] && [ -n "$power_now" ] && [ "$power_now" -gt 0 ]; then
+    time_min=$(echo "$energy_now * 60 / $power_now" | bc)
+    hours=$((time_min / 60))
+    minutes=$((time_min % 60))
+    time=" ${hours}h${minutes}m"
+  else
+    time=""
+  fi
 else
   icon=""
+  time=""
 fi
- 
-printf "%s" "$icon" "$capacity%"
+
+printf "%s %s%%%s\n" "$icon" "$capacity" "$time"
+
