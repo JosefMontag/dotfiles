@@ -1,0 +1,53 @@
+! Make term colorful
+XTerm.termName: xterm-256color
+
+! Set font and keybindings
+xterm*faceName: Inconsolata\\-dz
+xterm*faceSize: 16
+XTerm*font:  -misc-fixed-medium-r-normal-*-20-200-75-75-c-100-iso10646-1
+XTerm.vt100.translations: #override \n\
+  Ctrl <Key> minus: smaller-vt-font() \n\
+  Ctrl <Key> plus: larger-vt-font()
+
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+xterm*loginshell: true
+
+! I like a LOT of scrollback...
+xterm*savelines: 16384
+
+! Double-click to select whole URLs 
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+! Colors...
+xterm*background: rgb:1a/1a/1a
+xterm*foreground: rgb:d6/d6/d6
+xterm*color0:     rgb:00/00/00
+xterm*color1:     rgb:9e/18/28
+xterm*color2:     rgb:00/88/00
+xterm*color3:     rgb:96/8a/38
+xterm*color4:     rgb:41/41/71
+xterm*color5:     rgb:96/3c/59
+xterm*color6:     rgb:41/81/79
+xterm*color7:     rgb:be/be/be
+xterm*color8:     rgb:66/66/66
+xterm*color9:     rgb:cf/61/71
+xterm*color10:     rgb:7c/bc/8c
+xterm*color11:     rgb:ff/f7/96
+xterm*color12:     rgb:41/86/be
+xterm*color13:     rgb:cf/9e/be
+xterm*color14:     rgb:71/be/be
+xterm*color15:    rgb:ff/ff/ff
+
+! No scrollbar...
+xterm*ScrollBar: false
+
+! Enable pg-up pg-down
+xterm*VT100.Translations: #override \n\
+    <KeyPress>Prior:scroll-back(1,page)\n\
+    <KeyPress>Next:scroll-forw(1,page)\n\
+
+! Cursor
+xterm*cursorColor: #d6d6d6
+Xcursor.theme: Adwaita
+Xcursor.size: 48
+

@@ -1,6 +1,13 @@
-
 # --- znap init ---
 source ~/.znap/znap.zsh
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 
 # --- Core plugins ---
 znap source zsh-users/zsh-autosuggestions
@@ -14,7 +21,8 @@ zmodload zsh/complist
 
 # Load completion-related plugins AFTER compinit
 znap source zsh-users/zsh-completions
-source ~/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
+znap source Aloxaf/fzf-tab
+
 
 # Menu selection enabled
 zstyle ':completion:*' menu select

@@ -50,9 +50,8 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class            instance    title       tags mask  iscentered   isfloating   monitor */
-	{ "Vivaldi",  NULL,       NULL,       0 << 0,    0,           0,           -1 },
+	{ "Vivaldi",        NULL,       NULL,       0 << 0,    0,           0,           -1 },
 	{ "Nautilus",       NULL,       NULL,       1 << 1,    0,           0,           -1 },
-	{ "org.wezfurlong.wezterm",     NULL, NULL, 1 << 2,    0,           0,           -1 },
 	{ "Insync",         NULL,       NULL,       1 << 8,    0,           0,           -1 },
 	/*{ "wezterm",        NULL,       NULL,       1 << 3,    0,           0,           -1 },*/
 };
