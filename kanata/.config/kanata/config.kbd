@@ -1,0 +1,44 @@
+
+;; ~/.config/kanata/config.kbd — laptop
+
+(defcfg
+  process-unmapped-keys yes
+  linux-dev-names-include (
+    "Keychron  Keychron Link  Keyboard"
+    "Keychron Keychron V10 Max Keyboard"
+    "Keychron V10 Max Keyboard"
+  "AT Translated Set 2 keyboard"
+  )
+  linux-continue-if-no-devs-found yes
+)
+
+(defsrc)
+
+;; base layer
+(deflayermap (base)
+
+  ;; caps: esc by default; shift+caps = real capslock toggle
+  caps (fork esc caps (lsft rsft))
+
+  ;; make physical left alt = ctrl and activate ctrl-nav while held
+  lalt (multi lctl (layer-while-held nav))
+  lctl (multi lctl (layer-while-held nav))
+
+  ;; Home-row mods
+  s (tap-hold 200 200 s lsft)                         ;; s → Shift when held
+  d (tap-hold 200 200 d lmeta)                         ;; d → Lwin when held
+  f (tap-hold 200 200 f (multi lctl (layer-while-held nav))) ;; f → Ctrl AND enables nav while held
+  j (tap-hold 200 200 j lctl)                         ;; j → Ctrl when held
+  k (tap-hold 200 200 k lmeta)                         ;; k → Lwin when held
+  l (tap-hold 200 200 l lsft)                         ;; l → Shift when held
+
+
+)
+
+;; nav layer (hold left ctrl)
+(deflayermap (nav)
+ h (unmod left)   j (unmod down)  k (unmod up)    l (unmod right)
+ y (unmod home)   u (unmod pgup)  i (unmod pgdn)  o (unmod end)
+)
+
+

@@ -1,0 +1,4 @@
+#!/bin/sh
+dat=$(date '+%a %b %-d  %H:%M')
+
+printf "%s" "$dat"

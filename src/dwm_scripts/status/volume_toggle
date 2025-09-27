@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if amixer -c 0 get Master | grep -q off
+then
+    amixer sset Master unmute
+    amixer sset Speaker unmute
+    amixer sset Headphone unmute
+else
+    amixer sset Master mute
+fi
