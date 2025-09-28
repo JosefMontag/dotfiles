@@ -12,8 +12,14 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = {"Inconsolata:size=13", "IcoFont:size=13", "NotoColorEmoji:size=15", "FontAwesome:size=13"};
-static const char dmenufont[]       = "Inconsolata:size=13";
+static const char *fonts[] = {
+  "Inconsolata Nerd Font:size=11:antialias=true:autohint=true",
+  "Weather Icons:size=11",
+  "Font Awesome 6 Free:style=Solid:size=11"
+};
+
+static const char dmenufont[] =
+    "Inconsolata Nerd Font:size=11:antialias=true:autohint=true";
 static const char col_gray[]       = "#c0c4c2";
 static const char col_black[]       = "#000000";
 static const char col_gray1[]       = "#222222";
@@ -129,10 +135,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
  	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} }, 
   // Volume, mic, and brightness keys
-  { 0, XF86XK_AudioMute,                     spawn,          SHCMD("~/dotfiles/scripts/status/volume_toggle; pkill -RTMIN+1 dwmblocks") },
-  { 0, XF86XK_AudioRaiseVolume,              spawn,          SHCMD("amixer set Master 5%+; pkill -RTMIN+1 dwmblocks") },
-  { 0, XF86XK_AudioLowerVolume,              spawn,          SHCMD("amixer set Master 5%-; pkill -RTMIN+1 dwmblocks") }, 
-  { 0, XF86XK_AudioMicMute,                  spawn,          SHCMD("amixer set Capture toggle; amixer set Dmic0 toggle; pkill -RTMIN+2 dwmblocks") },
+  { 0, XF86XK_AudioMute,              spawn,          SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; pkill -RTMIN+1 dwmblocks") },
+  { 0, XF86XK_AudioRaiseVolume,       spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; pkill -RTMIN+1 dwmblocks") },
+  { 0, XF86XK_AudioLowerVolume,       spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; pkill -RTMIN+1 dwmblocks") },
+  { 0, XF86XK_AudioMicMute,           spawn,          SHCMD("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; pkill -RTMIN+2 dwmblocks") },
   { 0, XF86XK_MonBrightnessUp,               spawn,          SHCMD("backlight_control +10") },
   { 0, XF86XK_MonBrightnessDown,             spawn,          SHCMD("backlight_control -10") },
   // Keyboard switcher signal

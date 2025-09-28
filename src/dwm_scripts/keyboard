@@ -1,16 +1,14 @@
 #!/bin/sh
 
-# Taken from dwm_bar scripts
-# Dependencies: xorg-setxkbmap
-
-if setxkbmap -print | grep -q  "us"
-then
-  KBD="US" 
-fi
-if setxkbmap -print | grep -q "cz"
-then
-  KBD="CZ" 
+if $(setxkbmap -query | grep -q "layout:\s*us"); then
+    # If the current layout is 'us', switch to 'cz'
+    setxkbmap cz -variant qwerty
+    KBD="CZ"
+else
+    # Otherwise, switch to 'us'
+    setxkbmap us
+    KBD="US"
 fi
 
-# echo " $KBD"
+# This will now work correctly
 printf "%s" " $KBD"

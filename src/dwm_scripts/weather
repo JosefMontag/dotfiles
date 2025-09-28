@@ -1,52 +1,11 @@
-# #!/bin/sh
-icon_for_condition() {
-  local cond="$1" hour icon
-  hour=$(date +%H)
 
-  case "$cond" in
-    *Thunder*|*Storm*|*Thundery*)            icon="" ;;   # bolt
-    *Blizzard*|*Blowing\ snow*)              icon="" ;;   # severe snow
-    *Sleet*|*Ice\ pellets*|*Freezing\ rain*|*Freezing\ drizzle*)
-                                              icon="" ;;   # mixed/freezing precip
-    *Snow*|*Snow\ shower*|*Flurries*)        icon="" ;;   # snow
-    *Hail*)                                   icon="" ;;   # hail (reuse droplet)
-    *Drizzle*|*Showers*|*Shower*)             icon="" ;;   # showers/drizzle
-    *Heavy\ rain*|*Torrential*)               icon="" ;;   # heavy rain
-    *Rain*)                                   icon="" ;;   # generic rain
-    *Overcast*)                               icon="" ;;   # overcast
-    *Partly\ cloudy*|*Mostly\ cloudy*)
-      # Prefer cloud-sun/cloud-moon if your font has them; else fallback to cloud
-      if (( 8 <= hour && hour <= 19 )); then
-        icon=""  # cloud-sun (NF/FA5)
-      else
-        icon=""  # cloud-moon (NF/FA5)
-      fi
-      # crude fallback to plain cloud if glyphs aren’t present in your font stack
-      [[ "$icon" == $'\uf6c4' || "$icon" == $'\uf753' ]] || icon=""
-      ;;
-    *Cloud*|*Cloudy*)                          icon="" ;;  # generic cloudy
-    *Clear*)                                   icon="" ;;  # clear (night OK)
-    *Sunny*)                                   icon="" ;;  # sunny (day)
-    *Mist*|*Fog*|*Haze*|*Smog*)                icon="" ;;  # fog/mist/haze
-    *Tornado*|*Cyclone*)                       icon="" ;;  # severe alert
-    *Gale*|*Wind*)                             icon="" ;;  # windy
-    *Freezing*)                                icon="" ;;  # generic freezing
-    *)                                         icon="" ;;  # unknown
-  esac
-  printf "%s" "$icon"
-}
+#!/bin/sh
+# weather.sh — plain text wttr.in (no jq)
 
-CITY="$(curl -s https://ipinfo.io/city)" || exit 0
-URL="https://wttr.in/${CITY}?format=j1&m"
-json="$(curl -fsS "$URL")" || exit 0
+city="$(curl -s https://ipinfo.io/city)" || exit 0
 
-cond="$(printf '%s' "$json" | jq -r '.current_condition[0].weatherDesc[0].value')"
-temp="$(printf '%s' "$json" | jq -r '.current_condition[0].temp_C')"
+# %t = temperature, %C = condition description
+out="$(curl -s "https://wttr.in/${city}?format=%t+%C")" || exit 0
 
-# source the function above or paste it here
-# . ~/dotfiles/src/dwm_scripts/status/icon_map.sh
-
-icon="$(icon_for_condition "$cond")"
-
-printf "%s %s°C" "$icon" "$temp"
-
+# Strip leading/trailing whitespace and print
+printf "%s" "$out"

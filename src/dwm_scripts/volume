@@ -1,30 +1,37 @@
 #!/bin/sh
+# volume.sh — PipeWire + Font Awesome icons (Inconsolata Nerd Font)
 
-# This script uses pactl to get the volume level and display it in
-# the form of a notification and display an appropriate icon in the 
-# status bar.
+# Example outputs:
+#   Volume: 0.52
+#   Volume: 0.30 [MUTED]
+line="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null)" || exit 0
 
-sinkinfo="$(pactl list sinks | grep 'Mute\|Volume:')"
+case "$line" in
+  *"[MUTED]"*)
+    printf " Off"
+    exit 0
+    ;;
+esac
 
-echo "$sinkinfo" | grep "Mute: yes" > /dev/null && printf " Off" && exit
+# Extract fractional volume (0.00–1.00) and convert to percent
+frac=$(printf "%s" "$line" | awk '{print $2}')
+# safety: strip anything non-numeric/dot
+frac=$(printf "%s" "$frac" | tr -cd '0-9.')
+[ -z "$frac" ] && exit 0
 
-vol=$(echo "$sinkinfo" | grep "front-left" | awk '{ print $5 }' | tr -d "%" |
-  tail -1) 
+# Multiply by 100 and round
+vol=$(awk -v f="$frac" 'BEGIN{printf("%d", (f*100)+0.5)}')
 
-# if [ "$vol" -gt "100" ]; then
-#     # Don't let the volume level exceed 100%.
-#     # (0 is the index of the sink. Use pactl list sinks to get sink names.)
-#     pactl set-sink-volume 0 100%
-#     vol=100;
-# 	icon=""
-if [ "$vol" = "100" ]; then
-	icon=" $vol%"
-elif [ "$vol" -gt "70" ]; then
-	icon=" $vol%"
-elif [ "$vol" -gt "30" ]; then
-	icon=" $vol%"
+if   [ "$vol" -ge 100 ]; then
+  icon="  ${vol}%"
+elif   [ "$vol" -ge 71 ]; then
+  icon="  ${vol}%"
+elif [ "$vol" -ge 31 ]; then
+  icon="  ${vol}%"
+elif [ "$vol" -ge 1  ]; then
+  icon="  ${vol}%"
 else
-	icon=" $vol%"
+  icon=" Off"
 fi
 
-printf "%s" "$icon"
+printf "%s" " $icon"
