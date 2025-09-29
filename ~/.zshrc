@@ -12,13 +12,10 @@ gitpush() {
 }
 
 # Replace ls with lsd
-alias ls='lsd --group-dirs first --icon=auto --color=auto'
-
-# Long listing, human-readable sizes, directories first
-alias ll='lsd -lh --group-dirs first --icon=auto --color=auto'
+alias ls='lsd -a --group-dirs first --icon=auto --color=auto'
 
 # All files, including dotfiles
-alias la='lsd -lha --group-dirs first --icon=auto --color=auto'
+alias ld='lsd -lha --group-dirs first --icon=auto --color=auto'
 
 # Tree view (depth 2 is a nice default)
 alias lt='lsd --tree --depth=2 --group-dirs first --icon=auto --color=auto'

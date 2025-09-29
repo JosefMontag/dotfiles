@@ -22,8 +22,9 @@ bicon=$(bat_icon "$capacity")
 # Possible values: Charging, Discharging, Full, Not charging, Unknown
 case "$status" in
   Discharging) icon="$bicon" ;;
-  Charging)    icon=" $bicon" ;;
-  Full)        icon=" " ;;
+  Charging)    icon="" ;;
+  "Not charging")    icon="" ;;
+  Full)        icon="" ;;
   *)           icon="$bicon" ;;  # Not charging / Unknown
 esac
 

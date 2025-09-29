@@ -2,10 +2,10 @@
 #!/bin/sh
 # weather.sh — plain text wttr.in (no jq)
 
-city="$(curl -s https://ipinfo.io/city)" || exit 0
+city="$(curl -s https://ifconfig.co/city)" || exit 0
 
 # %t = temperature, %C = condition description
 out="$(curl -s "https://wttr.in/${city}?format=%t+%C")" || exit 0
 
 # Strip leading/trailing whitespace and print
-printf "%s" "$out"
+printf "%s" "$city: $out"

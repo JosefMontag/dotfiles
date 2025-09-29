@@ -7,7 +7,7 @@ static const Block blocks[] = {
     { "   ",     "~/dotfiles/src/dwm_scripts/microphone",          0,     2 },
     { "  ",      "~/dotfiles/src/dwm_scripts/keyboard",            0,     3 },
     { "  ",      "~/dotfiles/src/dwm_scripts/wifinetwork",         0,     4},
-    { "   ",     "~/dotfiles/src/dwm_scripts/battery",             100,    }
+    { "   ",     "~/dotfiles/src/dwm_scripts/battery",             60,    }
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
