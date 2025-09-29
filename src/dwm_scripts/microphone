@@ -2,9 +2,9 @@
 
 # Zjistí, jestli je ve výstupu pro výchozí zdroj zvuku slovo "MUTED"
 if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q "MUTED"; then
-  iconmic=""
-else
   iconmic=""
+else
+  iconmic=""
 fi
 
 printf "%s" "$iconmic"
