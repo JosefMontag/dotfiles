@@ -6,7 +6,8 @@ configuration {
 	icon-theme: "papirus";
 	lines: 10;
 	sidebar-mode: true;
-
+	font: "Inconsolata 14";
+	terminal: "wezterm";
 }
 @import "/usr/share/rofi/themes/android_notification.rasi"
 
@@ -15,7 +16,6 @@ configuration {
 /*	width: 50;*/
 /*	lines: 15;*/
 /*	columns: 1;*/
-	font: "Inconsolata 14";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
@@ -23,7 +23,6 @@ configuration {
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
 /*	show-icons: false;*/
-	terminal: "wezterm";
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
 /*	run-command: "{cmd}";*/

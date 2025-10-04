@@ -2,6 +2,7 @@
 
 alias x="startx" 
 alias cat="bat" 
+alias ..="cd .." 
 
 gitpush() {
   git add -A
@@ -18,7 +19,7 @@ alias ls='lsd -a --group-dirs first --icon=auto --color=auto'
 alias ld='lsd -lha --group-dirs first --icon=auto --color=auto'
 
 # Tree view (depth 2 is a nice default)
-alias lt='lsd --tree --depth=2 --group-dirs first --icon=auto --color=auto'
+alias lt='lsd -a --tree --depth=2 --group-dirs first --icon=auto --color=auto'
 
 # zinit {{{1
 
