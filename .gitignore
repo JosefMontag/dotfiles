@@ -1,1 +1,11 @@
 dotfiles_old/
+# Ignore everything under Vivaldi except whitelisted files
+vivaldi/.config/vivaldi/**
+!vivaldi/.config/vivaldi/Local State
+!vivaldi/.config/vivaldi/Default/
+!vivaldi/.config/vivaldi/Default/Bookmarks
+!vivaldi/.config/vivaldi/Default/Preferences
+!vivaldi/.config/vivaldi/Default/Secure Preferences
+!vivaldi/.config/vivaldi/Default/Custom Dictionary.txt
+!vivaldi/.config/vivaldi/Default/Shortcuts
+
