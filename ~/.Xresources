@@ -1,3 +1,6 @@
+! Sreen size of things fix
+Xft.dpi: 144
+
 ! Make term colorful
 XTerm.termName: xterm-256color
 
@@ -49,5 +52,5 @@ xterm*VT100.Translations: #override \n\
 ! Cursor
 xterm*cursorColor: #d6d6d6
 Xcursor.theme: Adwaita
-Xcursor.size: 48
+Xcursor.size: 40
 
