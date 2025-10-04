@@ -9,3 +9,18 @@ vivaldi/.config/vivaldi/**
 !vivaldi/.config/vivaldi/Default/Custom Dictionary.txt
 !vivaldi/.config/vivaldi/Default/Shortcuts
 
+# Ignore everything in yazi config by default
+yazi/.config/yazi/**
+
+# --- Keep only core configs ---
+!yazi/.config/yazi/yazi.toml
+!yazi/.config/yazi/theme.toml
+!yazi/.config/yazi/keymap.toml
+!yazi/.config/yazi/init.lua
+!yazi/.config/yazi/package.toml
+!yazi/.config/yazi/bookmark
+
+# --- Plugins/themes management ---
+# Track package.toml to reproduce plugins, but ignore installed code
+yazi/.config/yazi/plugins/*
+yazi/.config/yazi/flavors/*
