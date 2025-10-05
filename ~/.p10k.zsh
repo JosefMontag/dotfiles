@@ -32,6 +32,7 @@
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     # os_icon               # os identifier
+    vi_mode
     dir                     # current directory
     vcs                     # git status
     # =========================[ Line #2 ]=========================
@@ -1717,3 +1718,13 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
+
+# Vi mode indicators
+typeset -g POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND=green
+typeset -g POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND=lightblue  
+typeset -g POWERLEVEL9K_VI_MODE_VISUAL_FOREGROUND=purple
+
+# Show [I], [N], [V] text
+typeset -g POWERLEVEL9K_VI_INSERT_MODE_STRING='INSERT'
+typeset -g POWERLEVEL9K_VI_COMMAND_MODE_STRING='NORMAL'
+typeset -g POWERLEVEL9K_VI_VISUAL_MODE_STRING='VISUAL'

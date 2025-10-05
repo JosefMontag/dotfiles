@@ -24,13 +24,13 @@
   lalt (multi lctl (layer-while-held nav))
   lctl (multi lctl (layer-while-held nav))
 
-  ;; Home-row mods
-  s (tap-hold 200 200 s lsft)                         ;; s → Shift when held
-  d (tap-hold 200 200 d lmeta)                         ;; d → Lwin when held
-  f (tap-hold 200 200 f (multi lctl (layer-while-held nav))) ;; f → Ctrl AND enables nav while held
-  j (tap-hold 200 200 j lctl)                         ;; j → Ctrl when held
-  k (tap-hold 200 200 k lmeta)                         ;; k → Lwin when held
-  l (tap-hold 200 200 l lsft)                         ;; l → Shift when held
+  ;; ;; Home-row mods
+  ;; s (tap-hold 200 200 s lsft)                         ;; s → Shift when held
+  ;; d (tap-hold 200 200 d lmeta)                         ;; d → Lwin when held
+  ;; f (tap-hold 200 200 f (multi lctl (layer-while-held nav))) ;; f → Ctrl AND enables nav while held
+  ;; j (tap-hold 200 200 j lctl)                         ;; j → Ctrl when held
+  ;; k (tap-hold 200 200 k lmeta)                         ;; k → Lwin when held
+  ;; l (tap-hold 200 200 l lsft)                         ;; l → Shift when held
 
 
 )

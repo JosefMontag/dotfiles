@@ -78,3 +78,33 @@ export KEYTIMEOUT=1
 
 # --- extras ---
 # eval "$(zoxide init zsh)"
+# ... your aliases and other stuff above ...
+
+# zinit section with all your plugins
+# ...
+
+# --- Vi mode and cursor {{{1
+bindkey -v
+export KEYTIMEOUT=1
+
+# Change cursor shape for different vi modes
+function zle-keymap-select {
+  case $KEYMAP in
+    vicmd)      echo -ne '\e[1 q';;  # block cursor
+    viins|main) echo -ne '\e[5 q';;  # beam cursor
+  esac
+}
+zle -N zle-keymap-select
+
+# Use beam shape cursor on startup and after every command
+zle-line-init() {
+  echo -ne '\e[5 q'
+}
+zle -N zle-line-init
+
+# Better vi mode bindings
+bindkey '^?' backward-delete-char
+bindkey '^H' backward-delete-char
+bindkey '^W' backward-kill-word
+bindkey '^U' backward-kill-line
+
