@@ -83,6 +83,9 @@ export KEYTIMEOUT=1
 # zinit section with all your plugins
 # ...
 
+# Allow comments in interactive mode {{{1
+setopt interactivecomments
+
 # --- Vi mode and cursor {{{1
 bindkey -v
 export KEYTIMEOUT=1
