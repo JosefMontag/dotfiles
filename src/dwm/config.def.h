@@ -142,7 +142,7 @@ static Key keys[] = {
   { 0, XF86XK_MonBrightnessUp,               spawn,          SHCMD("backlight_control +10") },
   { 0, XF86XK_MonBrightnessDown,             spawn,          SHCMD("backlight_control -10") },
   // Keyboard switcher signal
-  {ControlMask|ShiftMask,                      XK_space,  spawn,          SHCMD("~/dotfiles/scripts/keyboard; pkill -RTMIN+3 dwmblocks") },
+  {ControlMask|ShiftMask,                      XK_space,  spawn,          SHCMD("~/dotfiles/src/dwm_scripts/keyboard toggle; pkill -RTMIN+3 dwmblocks") },
   // Wifi signal
   { 0, XF86XK_WLAN,                          spawn,          SHCMD("sleep 0.3s;pkill -RTMIN+4 dwmblocks") },
   // Screenshot

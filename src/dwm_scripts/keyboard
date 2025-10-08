@@ -1,14 +1,40 @@
+
 #!/bin/sh
 
-if $(setxkbmap -query | grep -q "layout:\s*us"); then
-    # If the current layout is 'us', switch to 'cz'
+toggle() {
+  if setxkbmap -query | grep -q "layout:\s*us"; then
     setxkbmap cz -variant qwerty
-    KBD="CZ"
-else
-    # Otherwise, switch to 'us'
+  else
     setxkbmap us
-    KBD="US"
-fi
+  fi
+}
 
-# This will now work correctly
-printf "%s" " $KBD"
+show() {
+  layout=$(setxkbmap -query | awk '/layout:/ {print $2}')
+  variant=$(setxkbmap -query | awk '/variant:/ {print $2}')
+
+  case "$layout" in
+    us) KBD="US" ;;
+    cz)
+      if [ "$variant" = "qwerty" ]; then
+        KBD="CZ"
+      else
+        KBD="CZ($variant)"
+      fi
+      ;;
+    *) KBD="$layout" ;;
+  esac
+
+  printf "%s" " $KBD"
+}
+
+case "$1" in
+  toggle)
+    toggle
+    # tell dwmblocks to update block #3
+    pkill -RTMIN+3 dwmblocks
+    ;;
+  *)
+    show
+    ;;
+esac
