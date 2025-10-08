@@ -38,7 +38,7 @@
 ;; nav layer (hold left ctrl)
 (deflayermap (nav)
  h (unmod left)   j (unmod down)  k (unmod up)    l (unmod right)
- y (unmod home)   u (unmod pgup)  i (unmod pgdn)  o (unmod end)
+                  u (unmod pgup)  i (unmod pgdn)  o (unmod end)
 )
 
 
