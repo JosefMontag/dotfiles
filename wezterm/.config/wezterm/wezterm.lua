@@ -25,11 +25,11 @@ config.colors = {
 -- config.color_scheme = "Catppuccin Mocha"
 
 -- Middle-click paste
-config.mouse_bindings = {
-  {
-    event = { Up = { streak = 1, button = "Middle" } },
-    action = wezterm.action.PasteFrom("Clipboard"),
-  },
-}
+-- config.mouse_bindings = {
+--   {
+--     event = { Up = { streak = 1, button = "Middle" } },
+--     action = wezterm.action.PasteFrom("Clipboard"),
+--   },
+-- }
 
 return config

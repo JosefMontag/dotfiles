@@ -26,7 +26,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   { import = "plugins.workflow" },
   { import = "plugins.r" },
-  { import = "plugins.editing" },
+  { import = "plugins.vimtex" },
   { import = "plugins.lsp" },
   { import = "plugins.treesitter" },
   { import = "plugins.ui" },
@@ -36,3 +36,5 @@ require("lazy").setup({
     notify = true,
   },
 })
+
+require("markdown")

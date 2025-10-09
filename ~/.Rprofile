@@ -1,56 +1,73 @@
-# system('xrdb -merge ~/.Xresources')
-# system('wmctrl -r "Terminal" -e 0,727,0,950,-1; wmctrl -r "Terminal" -b toggle,maximized_vert')
 
-options(repos=c(CRAN="https://mirrors.nic.cz/R", 'http://cran.rstudio.org'))
-.libPaths(c('~/GD/4SYNCFILES/R_libs/', .libPaths()))
-#
+# ~/.Rprofile — modernized
 
-# .adjustwidth <- function(...) {
-# 	options(width=Sys.getenv("COLUMNS"))
-#   options(width=system("tput cols", intern=TRUE),
-#           dplyr.width = getOption('width'))
-# 	TRUE
-# }
-# invisible(addTaskCallback(.adjustwidth))
+# ── Repositories ─────────────────────────────────────────────────────────────
+options(
+  repos = c(
+    CRAN = "https://cran.rstudio.com", 
+    CZ = "https://mirrors.nic.cz/R"
+  )
+)
 
-# capabilities("tcltk")
-# if('colorout' %in% rownames(utils::installed.packages()) == FALSE) {
-#   if('devtools' %in% rownames(utils::installed.packages()) == FALSE) {
-#     utils::install.packages('devtools')
+# ── Library paths ─────────────────────────────────────────────────────────────
+local_lib <- "~/GD/4SYNCFILES/R_libs"
+if (!dir.exists(local_lib)) dir.create(local_lib, recursive = TRUE)
+.libPaths(c(local_lib, .libPaths()))
+
+# # ── Console width auto-adjustment ─────────────────────────────────────────────
+# # Works both in radian and standard R terminals
+# .adjust_width <- function(...) {
+#   cols <- as.integer(Sys.getenv("COLUMNS", ""))
+#   if (is.na(cols) || cols <= 0) {
+#     cols <- tryCatch(
+#       as.integer(system("tput cols", intern = TRUE)), 
+#       error = function(e) 80
+#     )
 #   }
-#   devtools::install_github('jalvesaq/colorout')
+#   options(width = cols, dplyr.width = cols)
+#   TRUE
 # }
-# library(colorout)
-
-# library(setwidth)
-# library(plyr)
-# library(tidyverse)
-
-# q <- function(save="no", ...) {
-  # quit(save=save, ...)
-# }
-# pwd <- function() getwd()
-# cd <- function() setwd()
-
-# options(showWarnCalls = T,  # These 2 make errors easier to see.
-#         showErrorCalls = T, 
-#         # repos = 'http://cran.rstudio.org',  # Set CRAN 
-#         pdfviewer = 'okular',  # on Linux, use okular as the pdf viewer
-#         prompt = 'R> ',  # Set prompt
-#         digits = 5, 
-#         # max.print=3000,
-#         show.signif.stars = FALSE,
-#         stringsAsFactors = FALSE,
-#         # verbose = FALSE,
-#         quietly = FALSE,
-#         RStata.StataPath ='Dropbox/software/Stata12/StataSE-64.exe',
-#         crayon.enabled = FALSE
-#         )
+# invisible(addTaskCallback(.adjust_width))
 #
-# if (interactive()) utils::loadhistory(file = "~/.Rhistory")
-#
-# # More history
-# Sys.setenv(R_HISTSIZE='100000')
-# if (interactive()) {
-#   .Last <- function() try(savehistory("~/.Rhistory"))
+# # ── Color output ──────────────────────────────────────────────────────────────
+# # colorout speeds up and colorizes output; safe if installed
+# if (requireNamespace("colorout", quietly = TRUE)) {
+#   library(colorout)
+# } else {
+#   message("Tip: install.packages('colorout') for colored output.")
 # }
+#
+# # ── Basic options ─────────────────────────────────────────────────────────────
+# options(
+#   showWarnCalls = TRUE,
+#   showErrorCalls = TRUE,
+#   pdfviewer = "okular",
+#   prompt = "R> ",
+#   digits = 5,
+#   show.signif.stars = FALSE,
+#   stringsAsFactors = FALSE,
+#   crayon.enabled = FALSE,
+#   width = 80
+# )
+#
+# # ── Session / History ─────────────────────────────────────────────────────────
+# # if (interactive()) {
+# #   utils::loadhistory("~/.Rhistory")
+# #   Sys.setenv(R_HISTSIZE = "100000")
+# #   .Last <- function() try(utils::savehistory("~/.Rhistory"), silent = TRUE)
+# # }
+#
+# # ── Integration / Environment-specific tweaks ─────────────────────────────────
+# if (nzchar(Sys.getenv("RNVIMSERVER"))) {
+#   # Running inside Neovim via r.nvim
+#   options(editor = "nvim")
+# }
+#
+# if (nzchar(Sys.getenv("RADIAN_VERSION"))) {
+#   # Adjust radian-specific behavior (radian handles colors itself)
+#   options(crayon.enabled = TRUE)
+# }
+
+# ── Optional extras ───────────────────────────────────────────────────────────
+# Uncomment if you frequently use tidyverse or similar:
+# suppressPackageStartupMessages(library(tidyverse))
