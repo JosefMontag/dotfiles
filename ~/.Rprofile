@@ -1,8 +1,8 @@
 # system('xrdb -merge ~/.Xresources')
 # system('wmctrl -r "Terminal" -e 0,727,0,950,-1; wmctrl -r "Terminal" -b toggle,maximized_vert')
 
-# options(repos=c(CRAN="https://mirrors.nic.cz/R", 'http://cran.rstudio.org'))
-# .libPaths(c('~/GD/4SYNCFILES/R_libs/', .libPaths()))
+options(repos=c(CRAN="https://mirrors.nic.cz/R", 'http://cran.rstudio.org'))
+.libPaths(c('~/GD/4SYNCFILES/R_libs/', .libPaths()))
 #
 
 # .adjustwidth <- function(...) {

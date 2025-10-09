@@ -1,11 +1,14 @@
 return {
   "neovim/nvim-lspconfig",
+
   dependencies = {
     { "williamboman/mason.nvim", config = true },
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     { "j-hui/fidget.nvim", opts = {} },
     "stevearc/conform.nvim",
+
+    -- Autocompletion: blink.cmp
     {
       "saghen/blink.cmp",
       version = "*",
@@ -15,16 +18,18 @@ return {
       },
       config = function()
         require("blink.cmp").setup({
+          fuzzy = {
+            implementation = "lua", -- ✅ use Lua fallback, disables Rust fuzzy library
+          },
           sources = {
             default = { "lsp", "path", "buffer", "snippets" },
           },
           keymap = { preset = "default" },
           completion = {
             list = { selection = { preselect = true } },
-            documentation = { auto_show = true, auto_show_delay_ms = 200 },
-            windows = {
-              completion = { border = "rounded" },
-              documentation = { border = "rounded" },
+            documentation = {
+              auto_show = true,
+              auto_show_delay_ms = 200,
             },
           },
         })
@@ -33,7 +38,7 @@ return {
   },
 
   config = function()
-    -- Mason & installer
+    -- Mason setup
     require("mason").setup()
     require("mason-tool-installer").setup({
       ensure_installed = { "lua-language-server", "marksman", "texlab", "stylua" },
@@ -51,7 +56,7 @@ return {
       float = { border = "rounded", source = true },
     })
 
-    -- Formatter (conform.nvim)
+    -- Formatter setup (conform.nvim)
     require("conform").setup({
       notify_on_error = false,
       format_on_save = function(bufnr)
@@ -60,7 +65,9 @@ return {
         local lsp_format_opt = disable_filetypes[ft] and "never" or "fallback"
         return { timeout_ms = 500, lsp_format = lsp_format_opt }
       end,
-      formatters_by_ft = { lua = { "stylua" } },
+      formatters_by_ft = {
+        lua = { "stylua" },
+      },
       formatters = {
         stylua = {
           prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
@@ -68,7 +75,7 @@ return {
       },
     })
 
-    -- Load individual LSP servers (stored in lua/lsp/*.lua)
+    -- Load LSP servers (defined in lua/lsp/*.lua)
     require("lsp.lua_ls")
     require("lsp.marksman")
     require("lsp.r_language_server")
@@ -86,6 +93,7 @@ return {
         if client.server_capabilities.completionProvider then
           pcall(vim.lsp.completion.enable, bufnr)
         end
+
         vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { buffer = bufnr, desc = "Prev diagnostic" })
         vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = bufnr, desc = "Next diagnostic" })
         vim.keymap.set("n", "gl", function()

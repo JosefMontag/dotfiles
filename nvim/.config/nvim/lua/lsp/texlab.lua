@@ -17,4 +17,10 @@ vim.lsp.config["texlab"] = {
     },
   },
 }
-vim.lsp.start(vim.lsp.config["texlab"])
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "tex", "plaintex" },
+  callback = function()
+    vim.lsp.start(vim.lsp.config["texlab"])
+  end,
+})
