@@ -111,3 +111,4 @@ bindkey '^H' backward-delete-char
 bindkey '^W' backward-kill-word
 bindkey '^U' backward-kill-line
 
+export PATH="$HOME/.local/bin:$PATH"
