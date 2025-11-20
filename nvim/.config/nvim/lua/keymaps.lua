@@ -45,8 +45,3 @@ _G.run_selected_lua_code = function()
   end
 end
 map("v", "<leader>rl", _G.run_selected_lua_code)
-
--- Run R
-vim.keymap.set("n", "<leader>rf", function()
-  vim.fn.system("wmctrl -a wezterm") -- Focus Wezterm
-end, { desc = "Focus Wezterm (Radian)" })

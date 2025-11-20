@@ -7,7 +7,7 @@ status=$(tr -d '[:cntrl:]' < /sys/class/power_supply/BAT0/status)
 # Choose a battery glyph by capacity (ordered low→high)
 bat_icon() {
   c=$1
-  if   [ "$c" -le 5  ]; then printf "!"
+  if   [ "$c" -le 5  ]; then printf " "
   elif [ "$c" -le 10 ]; then printf ""
   elif [ "$c" -le 30 ]; then printf ""
   elif [ "$c" -le 60 ]; then printf ""

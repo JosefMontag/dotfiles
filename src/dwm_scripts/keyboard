@@ -26,7 +26,7 @@ show() {
     *) KBD="$layout" ;;
   esac
 
-  printf "%s" " $KBD"
+  printf "%s" "$KBD"
 }
 
 case "$1" in

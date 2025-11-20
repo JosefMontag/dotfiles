@@ -1,11 +1,13 @@
-
 #!/bin/sh
-# weather.sh — plain text wttr.in (no jq)
+# weather.sh — Use wttr.in's geolocation, remove country, and use text icons
 
-city="$(curl -s https://ifconfig.co/city)" || exit 0
+# %l = location, %C = condition TEXT, %t = temperature
+# &m forces metric units
+out="$(curl -s "https://wttr.in/?format=%l:+%C+%t&m")" || exit 0
 
-# %t = temperature, %C = condition description
-out="$(curl -s "https://wttr.in/${city}?format=%t+%C")" || exit 0
+# 1. Use sed to remove the ", Country" part
+# 2. Use xargs to trim leading/trailing spaces AND squeeze internal spaces
+clean_out="$(printf "%s" "$out" | sed 's/, [^:]*//' | xargs)"
 
-# Strip leading/trailing whitespace and print
-printf "%s" "$city: $out"
+# Print the cleaned output with a newline
+printf "%s" "$clean_out"

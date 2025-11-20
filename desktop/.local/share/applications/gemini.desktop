@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Name=Gemini
+Exec=ungoogled-chromium --app="https://gemini.google.com/app" \
+  --user-data-dir=$HOME/.config/webapps/gemini \
+  --class=Gemini
+Terminal=false
+Type=Application
+Icon=gemini
+Categories=Network;
+StartupWMClass=Gemini

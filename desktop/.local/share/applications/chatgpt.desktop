@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Name=ChatGPT
+Exec=ungoogled-chromium --app="https://chatgpt.com" \
+  --user-data-dir=$HOME/.config/webapps/chagpt\
+  --class=ChatGPT
+Terminal=false
+Type=Application
+Icon=chatgpt
+Categories=Network;
+StartupWMClass=Grok

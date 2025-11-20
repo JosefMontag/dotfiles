@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Name=Grok
+Exec=ungoogled-chromium --app="https://grok.com" \
+  --user-data-dir=$HOME/.config/webapps/grok \
+  --class=Grok
+Terminal=false
+Type=Application
+Icon=grok
+Categories=Network;
+StartupWMClass=Grok

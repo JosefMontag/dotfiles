@@ -1,13 +1,7 @@
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 # Reset/clear transforms and turn externals off
-xrandr --output DP-1 --off --output DP-2 --off
-xrandr --output eDP-1 --primary --mode 1920x1080 --scale 1x1 --panning 0x0
-
-# Bring up DP-1 mirroring the laptop
-xrandr --output DP-1 --auto --scale-from 1920x1080 --same-as eDP-1
-
-# Then add DP-2 mirroring as well
-xrandr --output DP-2 --auto --scale-from 1920x1080 --same-as eDP-1
+xrandr --output eDP-1 --mode 2560x1440 --scale 0.75x0.75 # --output HDMI-1 --mode 3840x2160 --scale 0.5x0.5 --same-as eDP-1
 
 # xinput set-prop 12 "Coordinate Transformation Matrix" 0 0 0 0 0 0 0 0 1
 
@@ -52,6 +46,7 @@ xrandr --output DP-2 --auto --scale-from 1920x1080 --same-as eDP-1
 xrdb -merge ~/.Xresources
 feh --bg-scale ~/dotfiles/wallpaper/simple.png
 
+picom --vsync &
 
 arandr-indicator &
 blueman-applet &

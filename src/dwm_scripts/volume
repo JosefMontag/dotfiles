@@ -31,7 +31,7 @@ elif [ "$vol" -ge 31 ]; then
 elif [ "$vol" -ge 1  ]; then
   icon="  ${vol}%"
 else
-  icon=" Off"
+  icon=""
 fi
 
-printf "%s" " $icon"
+printf "%s" "$icon"

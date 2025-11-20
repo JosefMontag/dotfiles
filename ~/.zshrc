@@ -3,6 +3,7 @@
 alias x="startx" 
 alias cat="bat" 
 alias ..="cd .." 
+alias vim="nvim" 
 
 gitpush() {
   git add -A
