@@ -317,6 +317,9 @@ static Drw *drw;
 static Monitor *mons, *selmon;
 static Window root, wmcheckwin;
 
+// Cycle windows when tag is clicked
+static void vieworcycle(const Arg *arg);
+
 /* configuration, allows nested code to access above variables */
 #include "config.h"
 
@@ -2793,4 +2796,18 @@ main(int argc, char *argv[])
 	cleanup();
 	XCloseDisplay(dpy);
 	return EXIT_SUCCESS;
+}
+
+void
+vieworcycle(const Arg *arg)
+{
+    /* If the clicked tag is the same as the currently active tag... */
+    if ((arg->ui & TAGMASK) == selmon->tagset[selmon->seltags]) {
+        /* ...cycle to the next window (equivalent to Mod+j) */
+        const Arg a = { .i = +1 };
+        focusstack(&a);
+    } else {
+        /* ...otherwise, switch to that tag standardly */
+        view(arg);
+    }
 }

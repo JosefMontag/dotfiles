@@ -15,6 +15,8 @@ config.freetype_render_target = "HorizontalLcd"
 config.enable_tab_bar = false
 config.window_decorations = "TITLE | RESIZE" -- Ensure wmctrl works
 config.exit_behavior = "CloseOnCleanExit" -- Stable for radian
+config.window_close_confirmation = "NeverPrompt" 
+
 
 -- Colors
 config.colors = {
@@ -31,5 +33,15 @@ config.colors = {
 --     action = wezterm.action.PasteFrom("Clipboard"),
 --   },
 -- }
+--
+-- local wezterm = require 'wezterm'
+
+config.keys = {
+    -- Existing key bindings go here, or add this block if 'keys' doesn't exist.
+    
+    -- Explicitly define Shift-RightArrow to send the correct sequence.
+    -- This should override any conflicting default behavior.
+    { key = "RightArrow", mods = "SHIFT", action = wezterm.action.SendString("\x1b[1;2C") },
+  }
 
 return config

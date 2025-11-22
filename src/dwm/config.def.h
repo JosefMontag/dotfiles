@@ -13,7 +13,7 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const double activeopacity   = 1.0f;     /* Window opacity when it's focused (0 <= opacity <= 1) */
-static const double inactiveopacity = 0.5f;   /* Window opacity when it's inactive (0 <= opacity <= 1) */
+static const double inactiveopacity = 0.75f;   /* Window opacity when it's inactive (0 <= opacity <= 1) */
 static       Bool bUseOpacity       = True;     /* Starts with opacity on any unfocused windows */
 static const char *fonts[] = {
   "Inconsolata Nerd Font:size=11:antialias=true:autohint=true"
@@ -43,10 +43,9 @@ static const char *const autostart[] = {
   "vivaldi", NULL,
   "redshift", "-l", "49:15", NULL,
   "nautilus", NULL,
-  "wezterm", "-e", "nvim", NULL,
   "owncloud", NULL,
   "insync", "start",  NULL,
-  "xautolock", "-locker", "slock", NULL,
+  "xidlehook", "--not-when-fullscreen", "--not-when-audio", "--timer", "600", "slock", "", NULL,
 	NULL /* terminate */
 };
 
@@ -166,7 +165,7 @@ static Button buttons[] = {
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        resizemouse,    {0} },
-	{ ClkTagBar,            0,              Button1,        view,           {0} },
+  { ClkTagBar,            0,              Button1,        vieworcycle,    {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },

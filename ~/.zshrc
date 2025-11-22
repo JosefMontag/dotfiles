@@ -1,3 +1,6 @@
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # aliases {{{1
 
 alias x="startx" 
@@ -48,14 +51,9 @@ zmodload zsh/complist
 znap source zsh-users/zsh-completions
 znap source Aloxaf/fzf-tab
 
-
 # Menu selection enabled
 zstyle ':completion:*' menu select
 unsetopt menu_complete
-
-# Make sure Tab triggers completion in BOTH keymaps
-bindkey -M emacs '^I' expand-or-complete
-bindkey -M viins '^I'  expand-or-complete
 
 # (Optional) keep fzf-tab lightweight while testing
 # zstyle ':fzf-tab:*' fzf-preview ''  # disable heavy previews for now
@@ -69,10 +67,6 @@ HISTFILE=~/.zsh_history   # where history is saved
 HISTSIZE=50000
 SAVEHIST=50000
 setopt inc_append_history share_history hist_ignore_all_dups hist_reduce_blanks
-
-# --- Vi mode ---
-bindkey -v
-export KEYTIMEOUT=1
 
 # --- fzf keybindings (you already have Ctrl-R via these) ---
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
@@ -88,7 +82,6 @@ export KEYTIMEOUT=1
 setopt interactivecomments
 
 # --- Vi mode and cursor {{{1
-bindkey -v
 export KEYTIMEOUT=1
 
 # Change cursor shape for different vi modes
@@ -106,10 +99,43 @@ zle-line-init() {
 }
 zle -N zle-line-init
 
+# --- Vi mode and cursor ---
+bindkey -v
+
 # Better vi mode bindings
 bindkey '^?' backward-delete-char
 bindkey '^H' backward-delete-char
 bindkey '^W' backward-kill-word
 bindkey '^U' backward-kill-line
+
+# Tab = completion
+bindkey -M emacs '^I' expand-or-complete
+bindkey -M viins '^I'  expand-or-complete
+
+# Minimal Widget: Accept 1 character from suggestion
+accept-one-char() {
+  # Check if at end of line (RBUFFER empty) AND suggestion exists
+  if [[ -z "$RBUFFER" ]] && [[ -n "$POSTDISPLAY" ]]; then
+    # Append the first character of the suggestion
+    BUFFER="${BUFFER}${POSTDISPLAY:0:1}"
+    # Move cursor to end
+    CURSOR=$#BUFFER
+  else
+    # Otherwise, standard arrow movement
+    zle forward-char
+  fi
+}
+zle -N accept-one-char
+
+# Register as partial accept (prevents flickering)
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(accept-one-char)
+
+# Bindings
+bindkey -M viins '\e[C' accept-one-char
+bindkey -M emacs '\e[C' accept-one-char
+bindkey -M vicmd '\e[C' accept-one-char
+
+bindkey -M viins '^a' autosuggest-accept
+bindkey -M emacs '^a' autosuggest-accept
 
 export PATH="$HOME/.local/bin:$PATH"
