@@ -46,6 +46,7 @@ static const char *const autostart[] = {
   "owncloud", NULL,
   "insync", "start",  NULL,
   "xidlehook", "--not-when-fullscreen", "--not-when-audio", "--timer", "600", "slock", "", NULL,
+  "xss-lock", "--transfer-sleep-lock", "--", "slock", NULL,
 	NULL /* terminate */
 };
 
