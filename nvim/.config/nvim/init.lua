@@ -30,6 +30,7 @@ require("lazy").setup({
   { import = "plugins.lsp" },
   { import = "plugins.treesitter" },
   { import = "plugins.ui" },
+  { import = "plugins.git" },
 }, {
   change_detection = {
     enabled = true,
