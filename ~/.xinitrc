@@ -1,15 +1,23 @@
-source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+# source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
-# Reset/clear transforms and turn externals off
-xrandr --output DP-1 --off --output DP-2 --off
-xrandr --output eDP-1 --primary --mode 1920x1080 --scale 1x1 --panning 0x0
+# Get the current machine's hostname and convert it to lowercase for consistency
+HOSTNAME=$(hostname | tr '[:upper:]' '[:lower:]')
 
-# Bring up DP-1 mirroring the laptop
-xrandr --output DP-1 --auto --scale-from 1920x1080 --same-as eDP-1
+# --- Machine-Specific XRANDR Configuration ---
 
-# Then add DP-2 mirroring as well
-xrandr --output DP-2 --auto --scale-from 1920x1080 --same-as eDP-1
+case "$HOST" in
 
+    # 💻 Configuration for your Laptop (e.g., 'laptop-x1')
+    hp)
+        echo "Applying xrandr settings for Laptop HP..."
+        xrandr --output DP-1 --off --output DP-2 --off
+        xrandr --output eDP-1 --primary --mode 1920x1080 --scale 1x1 --panning 0x0
+        xrandr --output DP-1 --auto --scale-from 1920x1080 --same-as eDP-1
+        ;;
+esac
+
+# --- Continue with the rest of your .xinitrc (exec dwm, exec i3, etc.) ---
+# ...
 # xinput set-prop 12 "Coordinate Transformation Matrix" 0 0 0 0 0 0 0 0 1
 
 # xinput --set-button-map 11 1 3 2

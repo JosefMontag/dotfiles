@@ -3,6 +3,7 @@ local map = vim.keymap.set
 -- Search highlighting
 map("n", "<leader>n", ":set invhls<CR>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
+map("n", "q", "<cmd>q<CR>")
 
 -- Move selected text
 map("v", "J", ":m '>+1<CR>gv=gv")

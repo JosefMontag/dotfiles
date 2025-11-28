@@ -139,3 +139,12 @@ bindkey -M viins '^a' autosuggest-accept
 bindkey -M emacs '^a' autosuggest-accept
 
 export PATH="$HOME/.local/bin:$PATH"
+
+# cd to current dir after closing yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
