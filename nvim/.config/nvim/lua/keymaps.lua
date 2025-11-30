@@ -10,7 +10,7 @@ map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Quick commands
-map("n", ";", ":")
+-- map("n", ";", ":")
 map("n", "<leader><leader>", "i<space><esc>")
 map("n", "<leader>ev", ":e $MYVIMRC<CR>")
 map("n", "<leader>so", function()
