@@ -10,9 +10,9 @@ options(
 )
 
 # ── Library paths ─────────────────────────────────────────────────────────────
-local_lib <- "~/GD/4SYNCFILES/R_libs"
-if (!dir.exists(local_lib)) dir.create(local_lib, recursive = TRUE)
-.libPaths(c(local_lib, .libPaths()))
+# local_lib <- "~/GD/4SYNCFILES/R_libs"
+# if (!dir.exists(local_lib)) dir.create(local_lib, recursive = TRUE)
+# .libPaths(c(local_lib, .libPaths()))
 
 # # ── Console width auto-adjustment ─────────────────────────────────────────────
 # # Works both in radian and standard R terminals

@@ -37,9 +37,6 @@ open = [
 ]
 reveal = [
 	{ run = 'xdg-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
-	{ run = 'open -R "$1"',                         desc = "Reveal", for = "macos" },
-	{ run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
-	{ run = 'termux-open "$(dirname "$1")"',        desc = "Reveal", for = "android" },
 	{ run = '''clear; exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
 ]
 extract = [
@@ -47,6 +44,9 @@ extract = [
 ]
 play = [
 	{ run = 'smplayer --force-window "$@"', orphan = true, for = "unix" },
+]
+browse = [
+	{ run = 'vivaldi --force-window "$@"', orphan = true, for = "unix" },
 ]
 
 [open]
@@ -67,6 +67,7 @@ rules = [
 	# Empty file
 	{ mime = "inode/empty", use = [ "edit", "reveal" ] },
 	# Fallback
+	{ name = "html", use = [ "browse", "edit" ] },
 	{ name = "*", use = [ "open", "reveal" ] },
 ]
 
