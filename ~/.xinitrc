@@ -11,6 +11,7 @@ case $(cat /etc/hostname) in
         xrandr --output DP-1 --off --output DP-2 --off --output HDMI-1 --off
         xrandr --output eDP-1 --mode 2560x1440 --scale 0.75x0.75
         xrandr --output HDMI-1 --mode 3840x2160 --scale 0.5x0.5 --same-as eDP-1
+        xrandr --output DP-2 --mode 2560x1440 --scale 0.75x0.75
         ;;
 esac
 

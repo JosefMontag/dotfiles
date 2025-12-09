@@ -41,7 +41,7 @@ config.keys = {
     
     -- Explicitly define Shift-RightArrow to send the correct sequence.
     -- This should override any conflicting default behavior.
-    { key = "RightArrow", mods = "SHIFT", action = wezterm.action.SendString("\x1b[1;2C") },
+    -- { key = "RightArrow", mods = "SHIFT", action = wezterm.action.SendString("\x1b[1;2C") },
   }
 
 return config

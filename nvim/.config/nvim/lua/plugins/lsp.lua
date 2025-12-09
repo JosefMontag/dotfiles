@@ -41,7 +41,7 @@ return {
     -- Mason setup
     require("mason").setup()
     require("mason-tool-installer").setup({
-      ensure_installed = { "lua-language-server", "marksman", "texlab", "stylua" },
+      ensure_installed = { "lua-language-server", "marksman", "texlab", "stylua", "zls", "codelldb" },
     })
     require("mason-lspconfig").setup({
       ensure_installed = { "lua_ls", "marksman", "texlab" },

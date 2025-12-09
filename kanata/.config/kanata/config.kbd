@@ -6,6 +6,7 @@
   linux-dev-names-include (
     "Keychron  Keychron Link  Keyboard"
     "Keychron Keychron V10 Max Keyboard"
+    "Keychron Keychron V10 Max"
     "Keychron V10 Max Keyboard"
   "AT Translated Set 2 keyboard"
   )
@@ -21,8 +22,8 @@
   caps (fork esc caps (lsft rsft))
 
   ;; make physical left alt = ctrl and activate ctrl-nav while held
+  lctl lalt
   lalt (multi lctl (layer-while-held nav))
-  lctl (multi lctl (layer-while-held nav))
 
   ;; ;; Home-row mods
   ;; s (tap-hold 200 200 s lsft)                         ;; s → Shift when held
@@ -35,10 +36,35 @@
 
 )
 
-;; nav layer (hold left ctrl)
-(deflayermap (nav)
- h (unmod left)   j (unmod down)  k (unmod up)    l (unmod right)
-                  u (unmod pgup)  i (unmod pgdn)  o (unmod end)
+
+(defalias
+  cap (fork esc caps (lsft rsft))
+
+  ;; 1. Define the "Text Selection" actions
+  ;; These manually release Left Ctrl (lctl) so the OS sees ONLY Shift + Arrow.
+  ;; We use (multi) to send the sequence essentially at once.
+  sel_h (multi (release-key lctl) lsft left)
+  sel_j (multi (release-key lctl) lsft down)
+  sel_k (multi (release-key lctl) lsft up)
+  sel_l (multi (release-key lctl) lsft right)
+
+  ;; 2. The Smart Fork
+  ;; Logic:
+  ;; - If Shift IS held: Run @sel_h (Release Ctrl, send Shift+Left)
+  ;; - If Shift NOT held: Run (unmod left) (Release Ctrl, send Left)
+  arh (fork (unmod left)  @sel_h  (lsft rsft))
+  arj (fork (unmod down)  @sel_j  (lsft rsft))
+  ark (fork (unmod up)    @sel_k  (lsft rsft))
+  arl (fork (unmod right) @sel_l  (lsft rsft))
+  
+  ;; Optional: Do the same for PgUp/PgDn if you like
+  aru (fork (unmod pgup) (multi (release-key lctl) lsft pgup) (lsft rsft))
+  ari (fork (unmod pgdn) (multi (release-key lctl) lsft pgdn) (lsft rsft))
+  aro (fork (unmod end)  (multi (release-key lctl) lsft end)  (lsft rsft))
 )
 
-
+;; 3. Update the Nav Layer
+(deflayermap (nav)
+  h @arh    j @arj    k @ark    l @arl
+  u @aru    i @ari    o @aro
+)

@@ -19,6 +19,7 @@ return {
       "rnoweb",
       "yaml",
       "csv",
+      "zig",
     },
     auto_install = true,
     highlight = {
