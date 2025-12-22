@@ -64,3 +64,9 @@
   ari (fork (unmod pgdn) (multi (release-key lctl) lsft pgdn) (lsft rsft))
   aro (fork (unmod end)  (multi (release-key lctl) lsft end)  (lsft rsft))
 )
+
+;; 3. Update the Nav Layer
+(deflayermap (nav)
+  h @arh    j @arj    k @ark    l @arl
+  u @aru    i @ari    o @aro
+)
