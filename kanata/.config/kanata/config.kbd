@@ -8,9 +8,9 @@
     "Keychron Keychron V10 Max Keyboard"
     "Keychron Keychron V10 Max"
     "Keychron V10 Max Keyboard"
-  "AT Translated Set 2 keyboard"
-  "Dell KB216 Wired Keyboard"
-  "Keychron Keychron Q11"
+    "AT Translated Set 2 keyboard"
+    "Dell KB216 Wired Keyboard"
+    "Keychron Keychron Q11"
   )
   linux-continue-if-no-devs-found yes
 )

@@ -1,4 +1,5 @@
 dotfiles_old/
+lazy-lock.json
 # Ignore everything under Vivaldi except whitelisted files
 vivaldi/.config/vivaldi/**
 !vivaldi/.config/vivaldi/Local State
