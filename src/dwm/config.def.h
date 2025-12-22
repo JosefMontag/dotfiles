@@ -16,13 +16,13 @@ static const double activeopacity   = 1.0f;     /* Window opacity when it's focu
 static const double inactiveopacity = 0.75f;   /* Window opacity when it's inactive (0 <= opacity <= 1) */
 static       Bool bUseOpacity       = True;     /* Starts with opacity on any unfocused windows */
 static const char *fonts[] = {
-  "Inconsolata Nerd Font:size=11:antialias=true:autohint=true"
+  "InconsolataGo Nerd Font:size=11:antialias=true:autohint=true"
   // "Weather Icons:size=11",
   // "Font Awesome 6 Free:style=Solid:size=11"
 };
 
 static const char dmenufont[] =
-    "Inconsolata Nerd Font:size=11:antialias=true:autohint=true";
+    "InconsolataGo Nerd Font:size=11:antialias=true:autohint=true";
 static const char col_gray[]       = "#c0c4c2";
 static const char col_black[]       = "#000000";
 static const char col_gray1[]       = "#222222";

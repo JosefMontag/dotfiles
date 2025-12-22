@@ -27,6 +27,7 @@ yazi/.config/yazi/flavors/*
 
 # build crap
 src/dwm/*.o
+src/dwm/*.obj
 src/dwm/dwm
 src/dwmblocks/dwmblocks
 

@@ -22,7 +22,11 @@ alias ld='lsd -lha --group-dirs first --icon=auto --color=auto'
 alias lt='lsd -a --tree --depth=2 --group-dirs first --icon=auto --color=auto'
 
 # --- 1. Initialize Plugin Manager ---
-source ~/.znap/znap.zsh
+# Download Znap, if it's not there yet.
+[[ -r ~/.znap/znap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/.znap/znap
+source ~/.znap/znap/znap.zsh
 
 # --- 2. Powerlevel10k Instant Prompt ---
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
