@@ -9,6 +9,8 @@
     "Keychron Keychron V10 Max"
     "Keychron V10 Max Keyboard"
   "AT Translated Set 2 keyboard"
+  "Dell KB216 Wired Keyboard"
+  "Keychron Keychron Q11"
   )
   linux-continue-if-no-devs-found yes
 )
@@ -61,10 +63,4 @@
   aru (fork (unmod pgup) (multi (release-key lctl) lsft pgup) (lsft rsft))
   ari (fork (unmod pgdn) (multi (release-key lctl) lsft pgdn) (lsft rsft))
   aro (fork (unmod end)  (multi (release-key lctl) lsft end)  (lsft rsft))
-)
-
-;; 3. Update the Nav Layer
-(deflayermap (nav)
-  h @arh    j @arj    k @ark    l @arl
-  u @aru    i @ari    o @aro
 )

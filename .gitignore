@@ -35,3 +35,4 @@ src/dwmblocks/dwmblocks
 *.orig
 *.rej
 
+lazy-lock.json
