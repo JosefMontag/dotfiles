@@ -18,7 +18,7 @@ local function build_pandoc()
 
   local cmd
   if beamer then
-    cmd = { "pandoc", md, "-o", pdf, "--pdf-engine-opt=--recorder", "-t", "beamer", "--slide-level=2" }
+    cmd = { "pandoc", md, "-o", pdf, "-t", "beamer", "--slide-level=2" }
   else
     cmd = { "pandoc", md, "-o", pdf, "--pdf-engine-opt=--recorder" }
   end

@@ -4,8 +4,7 @@
 # ── Repositories ─────────────────────────────────────────────────────────────
 options(
   repos = c(
-    CRAN = "https://cran.rstudio.com", 
-    CZ = "https://mirrors.nic.cz/R"
+    'https://cloud.r-project.org'
   )
 )
 

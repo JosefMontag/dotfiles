@@ -1,6 +1,6 @@
--- lua/plugins/vimtex.lua
 return {
   "lervag/vimtex",
+  lazy = false,
   ft = { "tex" },
   config = function()
     vim.g.vimtex_mappings_enabled = 0 -- disable default global mappings
@@ -12,8 +12,13 @@ return {
       build_dir = "build",
       continuous = 1,
       callback = 1,
-      options = { "-pdf", "-interaction=nonstopmode", "-synctex=1" },
-    }
+      options = {
+        "-pdf",
+        "-shell-escape",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+      },
+    } -- The table is properly closed here now
 
     -- re-create local mappings just for TeX
     vim.api.nvim_create_autocmd("FileType", {

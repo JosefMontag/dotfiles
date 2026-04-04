@@ -1,22 +1,9 @@
-vim.lsp.config["lua_ls"] = {
-  cmd = { "lua-language-server" },
-  filetypes = { "lua" },
-  root_dir = vim.fs.root(0, {
-    ".luarc.json",
-    ".luarc.jsonc",
-    ".luacheckrc",
-    ".stylua.toml",
-    "stylua.toml",
-    "selene.toml",
-    "selene.yml",
-    ".git",
-  }),
-  capabilities = require("blink.cmp").get_lsp_capabilities(),
+return {
   settings = {
     Lua = {
       runtime = { version = "LuaJIT" },
       diagnostics = {
-        globals = { "vim" },
+        globals = { "vim", "wezterm" }, -- Added wezterm for your config editing
         disable = { "trailing-space" },
       },
       workspace = { checkThirdParty = false },
@@ -25,10 +12,3 @@ vim.lsp.config["lua_ls"] = {
     },
   },
 }
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lua" },
-  callback = function()
-    vim.lsp.start(vim.lsp.config["lua_ls"])
-  end,
-})

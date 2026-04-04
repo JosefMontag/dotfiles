@@ -1,8 +1,12 @@
-local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-vim.lsp.config["r_language_server"] = {
-  cmd = { "R", "--slave", "-e", "languageserver::run()" },
-  filetypes = { "r", "rmd", "qmd", "rnoweb" },
-  capabilities = capabilities,
+return {
+  -- No need to define 'cmd' or 'filetypes' if using nvim-lspconfig/Mason
+  -- They already know how to talk to R.
+  settings = {
+    -- Any specific R settings go here
+    r = {
+      lsp = {
+        rich_documentation = true,
+      },
+    },
+  },
 }
-vim.lsp.start(vim.lsp.config["r_language_server"])

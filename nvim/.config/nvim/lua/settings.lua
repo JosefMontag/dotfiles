@@ -5,10 +5,10 @@ vim.g.have_nerd_font = true
 vim.o.autoread = true
 
 -- Interface
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.number = false
+vim.opt.relativenumber = false
 vim.opt.signcolumn = "yes"
-vim.opt.scrolloff = 7
+vim.opt.scrolloff = 4
 vim.opt.colorcolumn = "80"
 vim.opt.foldmethod = "marker"
 vim.opt.wrap = true
@@ -64,7 +64,7 @@ vim.api.nvim_create_autocmd(save_on_events, {
       and vim.bo[bufnr].modified
       and vim.api.nvim_buf_get_option(bufnr, "buftype") == ""
       and file ~= ""
-      and not file:match("/%.config/nvim/")
+      -- and not file:match(".lua")
       and not vim.b._just_loaded
     then
       vim.cmd("silent! write")

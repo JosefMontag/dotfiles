@@ -128,3 +128,14 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+
+export XDG_CURRENT_DESKTOP=GNOME
+
+alias mount-OracleVPS='sshfs claw-server:/home/ubuntu/ ~/claw-server -o reconnect,ServerAliveInterval=15'
+# sshfs claw-server:/ ~/claw-server -o follow_symlinks
+alias unmount-OracleVPS='fusermount -u ~/claw-server'
+
+. "$HOME/.local/share/../bin/env"
+
+alias pynvim='zellij --layout python'
