@@ -18,18 +18,19 @@ return {
   },
 
   config = function()
+    vim.fn.setenv("ERG_PATH", vim.fn.expand("~/.local/share/nvim/mason/packages/erg"))
     -- 1. Mason setup
     require("mason").setup()
     require("mason-tool-installer").setup({
-      ensure_installed = { "stylua", "codelldb" },
+      ensure_installed = { "stylua", "codelldb", "erg"  },
     })
 
     require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls", "marksman", "texlab", "pylsp" },
+      ensure_installed = { "lua_ls", "marksman", "texlab", "pylsp"},
     })
 
     -- 2. Modern 0.11+ Server Activation
-    local servers = { "lua_ls", "marksman", "texlab", "pylsp", "r_language_server" }
+    local servers = { "lua_ls", "marksman", "texlab", "pylsp", "r_language_server"}
 
     for _, server in ipairs(servers) do
       local ok, custom_settings = pcall(require, "lsp." .. server)
@@ -45,7 +46,7 @@ return {
 
     -- 3. Diagnostics (MUST be inside config function)
     vim.diagnostic.config({
-      virtual_text = true,
+      virtual_text = false,
       float = { border = "rounded" },
     })
 

@@ -5,7 +5,7 @@ vim.g.have_nerd_font = true
 vim.o.autoread = true
 
 -- Interface
-vim.opt.number = false
+vim.opt.number = true
 vim.opt.relativenumber = false
 vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 4
@@ -64,7 +64,7 @@ vim.api.nvim_create_autocmd(save_on_events, {
       and vim.bo[bufnr].modified
       and vim.api.nvim_buf_get_option(bufnr, "buftype") == ""
       and file ~= ""
-      -- and not file:match(".lua")
+      and not file:match(".py")
       and not vim.b._just_loaded
     then
       vim.cmd("silent! write")
@@ -105,6 +105,13 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Show diagnostics automatically when the mouse hovers
+vim.diagnostic.config({
+  virtual_text = false, -- This hides the "annoying" inline messages
+  signs = true,        -- This keeps the sideline (gutter) indicators
+  underline = true,    -- This keeps the wavy lines under errors
+  update_in_insert = false,
+  severity_sort = true,
+})
 vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
   callback = function()
     vim.diagnostic.open_float(nil, {

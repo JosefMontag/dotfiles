@@ -1,14 +1,16 @@
 -- File: lua/lsp/pylsp.lua
--- In 0.11+, we return a table that Neovim merges automatically
 return {
+  -- This is often required for the client to pass it during the 'initialize' phase
+  init_options = {
+    skip_token_initialization = true,
+  },
   settings = {
     pylsp = {
-      -- FIX: Stops the TimeoutErrors causing your typing lag
+      -- This is the standard settings location
       skip_token_initialization = true,
       plugins = {
         pycodestyle = { enabled = false },
         mccabe = { enabled = false },
-        flake8 = { enabled = true },
       },
     },
   },

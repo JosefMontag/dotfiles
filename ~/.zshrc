@@ -139,3 +139,6 @@ alias unmount-OracleVPS='fusermount -u ~/claw-server'
 . "$HOME/.local/share/../bin/env"
 
 alias pynvim='zellij --layout python'
+
+# opencode
+export PATH=/home/jm/.opencode/bin:$PATH

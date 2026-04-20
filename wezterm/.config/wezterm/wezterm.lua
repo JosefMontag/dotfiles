@@ -83,8 +83,8 @@ config.mouse_bindings = {
 -- help provide clearer error messages
 
 -- max fps
-config.max_fps = 120
-config.animation_fps = 120
+config.max_fps = 60
+config.animation_fps = 60
 -- config.front_end = "WebGpu"
 
 --[[

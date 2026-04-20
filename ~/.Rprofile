@@ -19,24 +19,24 @@ if (interactive()) {  # <--- THIS GUARD IS CRITICAL
     installed <- rownames(utils::installed.packages())
     core_tools <- c("devtools", 
                   "languageserver", 
-                  "tidyverse"
+                  "tidyverse",
+                  "pak"
     )
     missing <- setdiff(core_tools, installed)
     
     if (length(missing) > 0) {
       cat(sprintf("\n[!] Missing core tools: %s\n", 
-          paste(missing, collapse = ", ")))
+        paste(missing, collapse = ", ")))
       if (readline("    Install now? (y/n): ") == "y") {
-        install(missing)
-      } else {
-        install.packages("pak", 
-          repos = sprintf("https://r-lib.github.io/p/pak/devel/%s/%s/%s", 
-            .Platform$pkgType, R.Version()$os, R.Version()$arch))
+        if('pak' %in% missing) {
+          utils::install.packages("pak", 
+            repos = sprintf("https://r-lib.github.io/p/pak/devel/%s/%s/%s", 
+              .Platform$pkgType, R.Version()$os, R.Version()$arch))
+        }
         pak::pkg_install(missing)
       }
       message("\n[✔] Ready. Restart R.")
     }
-  }
   })
 }
 
